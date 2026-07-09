@@ -1,0 +1,9 @@
+{
+  "name": "picky-client",
+  "description": "Pick-driven UI/UX design. Present candidate drafts (시안) as a tournament, round by round, and let the user choose — real rendered React candidates in a dev-only /picky-drafts harness, plus a self-contained, language-neutral UX-writing gate.",
+  "version": "1.0.0",
+  "author": { "name": "daviddev90" },
+  "homepage": "https://github.com/daviddev90/picky-client",
+  "repository": "https://github.com/daviddev90/picky-client",
+  "license": "MIT"
+}

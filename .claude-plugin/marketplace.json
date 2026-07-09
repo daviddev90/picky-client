@@ -1,0 +1,11 @@
+{
+  "name": "daviddev90",
+  "owner": { "name": "daviddev90" },
+  "plugins": [
+    {
+      "name": "picky-client",
+      "source": "./",
+      "description": "Pick-driven UI/UX design tournament + a language-neutral UX-writing gate."
+    }
+  ]
+}
