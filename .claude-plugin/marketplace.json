@@ -1,5 +1,6 @@
 {
   "name": "daviddev90",
+  "description": "daviddev90's Claude Code plugins — starting with picky-client (pick-driven UI/UX design + a UX-writing gate).",
   "owner": { "name": "daviddev90" },
   "plugins": [
     {
