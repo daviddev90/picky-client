@@ -16,6 +16,7 @@ rounds in ascending order so the lineage reads top-to-bottom.
 > Project: <project name>
 > Harness: src/picky-client/ · Browse: /picky-drafts
 > Status: Round <N> in progress
+> Settings: browserRenderCheck: <on | off>   (asked once after Round 1's first handoff; then honored)
 
 ## Brief
 
@@ -27,6 +28,8 @@ the user gave — stack, brand rules, must-keep elements, audience/language.>
 ## Round 1 — Design tone & manner
 Status: decided · Winner: #3
 Decides: tone & manner (1 key color + ≤1 sub color)
+Grounding: searched "<derived keywords>" across blogs / community threads / galleries → <one-line gist of what's current>
+Gates: direction gate passed (revised ×1) · error gate: 1 fixed
 
 | # | Title | Key / Sub color | Rationale |
 |---|-------|-----------------|-----------|
@@ -43,6 +46,8 @@ Notes: <anything worth remembering — why the winner won, what to carry forward
 Status: in progress
 Decides: <one line>
 Base (carryover): Round 1 #3
+Grounding: searched "<derived keywords for this axis>" → <one-line gist>
+Gates: direction gate <pass / revised ×N> · error gate <N cut/fixed>
 
 | # | Kind | Title | Rationale |
 |---|------|-------|-----------|
@@ -67,6 +72,16 @@ Notes: <pending user pick>
 - **Per-round header** — `Status`, `Winner` (when decided), and `Decides` give a
   one-glance state of the tournament. `Base (carryover)` records the lineage for rounds
   after #1.
+- **Settings** — one line in the top block, at minimum `browserRenderCheck: on | off`. Asked
+  **once**, after Round 1's first handoff (the user eyeballs the candidates anyway, so automated
+  browser render verification is opt-in), then honored every later round without re-asking. See
+  `generation-gate.md` Stage 5.
+- **Grounding + Gates (every round)** — `Grounding` records the forced Stage-1 research as an
+  auditable artifact: the queries actually run and a one-line gist of the sources/findings — taste
+  rounds too, not just function rounds. `Gates` records the outcomes: whether the direction gate
+  passed or how many times the slate was revised, and how many candidates the error gate cut or
+  fixed. Together they prove research + gating happened rather than being quietly skipped. Method in
+  `generation-gate.md`.
 - **Candidate table** — title + rationale for all ten, mirroring each candidate's `meta`.
   This is what makes the log a real record rather than a changelog. For rounds after #1,
   include the `Kind` column (carryover / trend / experimental) so the spread is visible.

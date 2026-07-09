@@ -35,29 +35,24 @@ current, not like framework defaults.
 
 ## Researching current trends
 
-For Round 1 (and whenever a later round leans on "trend" variations), ground the options
-in actual current practice from roughly the last year to now. Research, don't recall:
+The **forced** research method — the two-pass web search (derive keywords → pull diverse
+sources), scoped to the product's segment, with the queries and sources **logged as
+artifacts** — lives in `generation-gate.md` (Stage 1). It is mandatory, not "use it if the
+tools are available." This section only adds the taste-round specifics that sit on top of it:
 
-- If the Context7 docs tools or web search/fetch are available, use them to pull current
-  design-trend and color guidance. Look for: dominant palette directions, color-pairing
-  and contrast practice, type trends, the year's named aesthetics, and accessibility
-  expectations (contrast ratios).
-- Translate findings into **distinct named directions**, each with a one-line rationale
-  you can drop into the candidate's `meta.rationale`. The user should understand *why*
-  each option exists. Name the specific trend or reference each candidate draws on in its
-  `meta.rationale`, so the research is visible in the output rather than lost — keep it a
-  one-line credit, not a box to tick; the user's pick is the real judge of whether the
-  trend landed.
-- Keep accessibility real: key/sub colors should hit usable contrast against the canvas
-  for text and controls. A beautiful palette that fails contrast is a bad candidate.
+- Translate findings into **distinct named directions**, each with a one-line rationale you
+  drop into the candidate's `meta.rationale`, so the research is visible in the output rather
+  than lost — a one-line credit, not a box to tick; the user's pick is the real judge of
+  whether the trend landed.
+- Keep accessibility real: key/sub colors should hit usable contrast against the canvas for
+  text and controls. A beautiful palette that fails contrast is a bad candidate.
 
-Ground **every** round before generating candidates — not just Round 1. Round 1 gets a
-full trend + color sweep. Later **taste** rounds refresh it (re-check the axis in play plus
-anything new that axis needs) rather than coasting on memory — "the tone was fixed in
-Round 1" is not a reason to skip grounding the *current* axis. **Function** rounds ground
-differently (convergent path below): read the actual product code and pull tool
-conventions live, recording both as artifacts in the log's Grounding line. The failure to
-avoid: generating candidates from recall because grounding felt optional this round.
+Ground **every** round, not just Round 1: Round 1 gets a full sweep; later taste rounds
+refresh the axis in play (re-check *current* practice for that axis — "the tone was fixed in
+Round 1" is not a reason to skip grounding type this round). Function rounds ground via the
+convergent path below (product code + tool conventions, live, recorded as artifacts). The
+whole point of Stage 1 is that grounding is never optional: candidates built from recall are
+exactly the stale-slate failure the direction gate exists to reject.
 
 ## Function/convention decisions — the convergent path
 
@@ -91,11 +86,14 @@ this instead:
    name **at least two**, it isn't a round — present a single reasoned recommendation with
    its grounding instead of padding to a fake tournament. Drop the experimental quota
    entirely: every candidate respects the shared conventions; none exists just to be bold.
-3. **Gate each candidate on the editor-class checklist before showing it** (SKILL.md
-   *Non-negotiable quality bar*): work surface dominates, tools reachable, chrome never a
-   hero element, nav never permanently eats the canvas. A failing candidate is cut — and
-   **note in the log what you cut and why**, so the user sees the pick space wasn't
-   silently narrowed.
+3. **Gate each candidate adversarially before showing it.** Run the editor-class checklist
+   (SKILL.md *Non-negotiable quality bar*: work surface dominates, tools reachable, chrome
+   never a hero element, nav never permanently eats the canvas) as a **refuting skeptic**, not
+   a self-check — and have that skeptic also confirm the grounding actually happened (the
+   queries / sources are cited) and that the chosen conventions are **current, not stale**
+   (recency). This is the function-round form of the two upgrades in `generation-gate.md`
+   (*Function rounds — two upgrades*). A failing candidate is cut — and **note in the log what
+   you cut and why**, so the user sees the pick space wasn't silently narrowed.
 4. **Hand off as a critique, not a beauty contest.** For each candidate state its
    usability trade-off (what it optimizes, what it costs) so the user decides on function.
    Converge toward the reference consensus.
@@ -141,8 +139,12 @@ color and vary type. Don't relitigate settled rounds.
 
 ## Making candidates genuinely distinct
 
-Apply this test before handing off: *if you described candidates A and B to the user in
-one sentence each, would the sentences be obviously different?* If not, push them apart.
+Apply this test on the **text slate**, before building: *if you described candidates A and B
+to the user in one sentence each, would the sentences be obviously different?* If not, push
+them apart. This test is no longer self-attested — the **Distinctness lens** in
+`generation-gate.md` (Stage 3) enforces it adversarially: a skeptic collapses the ten into
+the fewest real ideas and the slate fails if that count is under ten. Design the slate to
+survive that, up front.
 
 - Vary the **idea**, not just numbers. "16px vs 17px body text" is not two candidates.
 - Pull from different references/aesthetics so the set covers range.

@@ -50,10 +50,15 @@ run the dev server, and tell the user exactly where to look.
 1. **Name the decision — and the surface it lives on.** State what this round decides in
    one line (e.g. "Round 1 — design tone & manner"), and name the real screen(s) the
    candidates depict. If it's not Round 1, derive the decision from the previous winner.
-2. **Triage, then generate.** Classify what the round decides (*Decision triage* below):
-   **taste** → build 10 genuinely distinct candidates (seeding rules below, `references/rounds.md`);
-   **function/convention** → take the convergent path in `references/rounds.md` (ground in
-   real code + tool conventions, 3–5 candidates, no experimental quota, critique not vote).
+2. **Triage, then generate through the gate.** Classify what the round decides (*Decision triage*
+   below), then run the **generation pipeline** in `references/generation-gate.md` — generation is
+   research-grounded and adversarially gated, not draw-ten-and-mount:
+   - **taste** → the full five-stage pipeline (research → text slate → direction gate → build →
+     error gate); the seeding taxonomy lives in `references/rounds.md`.
+   - **function/convention** → the convergent path in `references/rounds.md` (ground in real code +
+     tool conventions, 3–5 candidates, no experimental quota, critique not vote) **plus the recency +
+     adversarial upgrades** in `generation-gate.md` (*Function rounds — two upgrades*).
+
    Ground before you draw either way. **If the target has user-facing copy** and no vetted
    copy exists yet, also run the **copy gate** (`references/ux-writing.md`) to settle the
    words — in **parallel** with generation (*Copy is a settled axis* below), so candidates and copy
@@ -110,6 +115,15 @@ pick" does **not** turn a function decision into a 10-way vote: honor it with 3�
 options plus their trade-offs, not ten manufactured ones.
 
 **Round 1 is always taste** (tone & manner) — skip triage and run the tournament.
+
+## Generation is gated
+
+Generating candidates is not "draw ten and mount them." Every round is **grounded in live research
+and adversarially gated** — before building (a *direction gate* rejects a stale or look-alike slate)
+and after building (an *error gate* hunts broken candidates). The full method is
+`references/generation-gate.md`; read it before generating. The seeding taxonomy below (how the ten
+divide into winner / trend / experimental) feeds the text slate the direction gate checks — it does
+not replace the gate.
 
 ## How candidates are seeded each round
 
@@ -264,10 +278,15 @@ Read these as you need them — don't inline their contents into your reasoning 
   deletion. Set it up as a removable capsule (one folder + `[picky-client]`-tagged mount lines +
   a README) and delete it before deploy. Read at first-time setup, and whenever the user mentions
   deploying / a production build.
-- `references/rounds.md` — The round playbook: Round-1 trend & color research method,
-  how to make 10 genuinely distinct candidates, the 5-trend / 4-experimental variation
-  taxonomy with concrete directions, and how to propose subsequent rounds. Read before
-  generating candidates each round.
+- `references/generation-gate.md` — **The generation pipeline + the two visual gates.** Forced
+  live research (derive keywords, diverse sources, log artifacts), the text direction slate, the
+  pre-build *direction gate* (recency + distinctness skeptics, with verbatim refute prompts), the
+  post-build *error gate*, and the function-round upgrades. Read before generating candidates in
+  any round.
+- `references/rounds.md` — The round playbook: the 5-trend / 4-experimental variation taxonomy,
+  the winner + 9 variations structure, the function/convention convergent path, and how to propose
+  subsequent rounds. (The forced research method and the distinctness/recency gates now live in
+  `generation-gate.md`.) Read alongside it when generating candidates each round.
 - `references/ux-writing.md` — picky-client's **self-contained copy method + gate** (no
   dependency on / call to any other skill): the production question, the six-lens gate (four
   GATE lenses that block, two Quality), word-by-word refinement, voice-profile binding, plus
