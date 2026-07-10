@@ -85,19 +85,14 @@ run the dev server, and tell the user exactly where to look.
    #2–#10 are 9 variations of it. For a **function/convention** round, carry the winner
    then follow the convergent path (3–5 grounded candidates, no experimental quota) —
    don't manufacture nine variations just to reach ten.
-7. **Settle, then apply.** The tournament ends on an explicit **"the design is settled / finalize"**
-   step from the user — it otherwise has no defined end. At settle, **apply the accumulated winner to
-   the real app** (the final round's carryover encodes all prior axes) following
-   `references/applying.md`. A mid-tournament "apply it now" is an explicit **partial/preview**
-   application, clearly logged as such, never the durable spec. Even without re-reading `applying.md`,
-   applying is **hard-gated** and never a blind graft: (1) **enumerate** the real component from code
-   (every region, handler, branch, route, `aria-*`, state) and **reconcile** it against the winner's
-   anatomy — a structural difference **STOPs** for a user-approved keep-or-drop migration plan, never a
-   silent drop; (2) **restyle, don't replace**, on a clean-tree rollback commit; (3) **verify by
-   execution** — run tests if they exist, else a static structural-preservation diff (every prop /
-   handler / branch / route / `aria-*` preserved) plus a live browser drive; a rendered check of the
-   real screen, or the verdict is **UNVERIFIED**, never a static-only PASS. Full procedure in
-   `applying.md`.
+7. **Settle, then apply.** The tournament ends on an explicit **"the design is settled / finalize"** step
+   — it otherwise has no defined end. At settle, **apply the accumulated winner to the real app** (the
+   final round's carryover encodes all prior axes) per `references/applying.md`. A mid-tournament "apply
+   it now" is an explicit **partial/preview**, never the durable spec. Applying is **hard-gated and never
+   a blind graft** — enumerate + reconcile the real component (a structural difference **STOPs** for a
+   keep-or-drop plan), restyle-don't-replace on a rollback commit, verify by execution (or the verdict is
+   **UNVERIFIED**), and run ship-readiness QA (a11y / content-stress / i18n) there on the real screen.
+   Full procedure in `applying.md`.
 
 Repeat rounds 2–6 until the user settles; then run step 7 once (or stops).
 
@@ -244,27 +239,21 @@ broken can't be judged on its design:
   Motion / Framer Motion, and whatever else the project's stack fixes — using each
   library's current, idiomatic API. If unsure of an API, check its docs rather than
   guessing.
-- **Finished feel — at stress extremes.** Real content and real spacing, no lorem-ipsum rubble or
-  half-styled states — but rendered at its **stress extremes, not a flattering middle**: the longest
-  plausible string, the most and fewest items, the largest number. "Real" must not mean "tidy" (that
-  flatters a fragile layout).
+- **Finished feel.** Real content and spacing, no lorem-ipsum rubble or half-styled states. (Stress-extreme
+  data — longest string, most / fewest items, largest number — is tested at **apply** on the real screen,
+  `applying.md`, not on every taste mock.)
 - **One clear focal point / real hierarchy.** Every screen has a single element the eye lands on first,
   and adjacent type levels visibly step (size + weight); more than one element shouting "primary" (filled
   buttons, bold headings, elevated cards) is a fail. Generalizes the work-surface dominance rule to every
-  screen (`generation-gate.md` craft legs).
-- **Accessible & semantic.** Real controls (`button` / `a` / `input`, not a styled `<div onClick>`), an
-  accessible name on every icon-only control, `alt` on meaningful images, one `main` landmark + a sane
-  heading order, **tap targets ≥44px**, and a **visible focus ring** (never bare `outline:none`).
-- **Only what the surface renders.** Each candidate depicts one real screen and shows only
-  the elements and states that actually occur there — never a control or status that lives
-  on a *sibling* surface (a candidate pager, a "Now viewing" marker, or a browse-progress
-  bar belong to the candidate page's remote, not a mockup of the accordion main). **Never
-  redraw the harness's own floating remote** either — the real `HarnessChrome` is layered on
-  top of every candidate, so a mock back-link/round-dropdown inside a candidate shows two
-  remotes at once (worst when the tournament designs the harness itself). Unsure whether an element
-  renders on the target surface? Open that surface's real component and check. A draft full
-  of states the user never reaches on that screen can't be judged on its design. Full check
-  in `references/rounds.md` → *Surfaces that share chrome or state*.
+  screen.
+- **Accessible & semantic (pick-time core).** Real controls (`button` / `a` / `input`, not a styled
+  `<div onClick>`) and a **visible focus ring** (never bare `outline:none`). Full a11y completeness —
+  accessible names, `alt`, one `main` landmark + heading order, **tap targets ≥44px (or ≥24px with adequate
+  spacing, WCAG 2.5.8)** — is verified at **apply** on the real screen (`applying.md`), not on ten mocks.
+- **Only what the surface renders.** Show only the elements / states that occur on *this* surface — never a
+  sibling surface's control (a candidate pager, a "Now viewing" marker) and never redraw the real
+  `HarnessChrome`. Full check (only bites when redesigning the harness itself): `references/rounds.md` →
+  *Surfaces that share chrome or state*.
 - **Work-surface screens stay tools.** If the screen is an editor, drawing tool,
   dashboard, or workspace (a canvas / document / timeline / table must dominate), **every**
   candidate — in **every** round, taste or function or restyle — must pass: the work

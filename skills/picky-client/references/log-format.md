@@ -41,7 +41,7 @@ Scales: type <base / ratio> · spacing <base / step> (carried forward to later r
 
 | # | Title | Key / Sub color | Rationale |
 |---|-------|-----------------|-----------|
-| 1 | Calm neutral + single blue | #2563EB / — | trustworthy-corporate, restrained |
+| 1 | Calm neutral + single ink-blue | #1E56C9 / — | trustworthy-corporate, restrained (authored, not blue-600) |
 | 2 | Warm gray + coral | #F2683C / #6B7280 | warm-friendly, approachable |
 | … | … | … | … |
 | 10 | Dark-native + lime | #A3E635 / — | experimental, dark-mode-native |

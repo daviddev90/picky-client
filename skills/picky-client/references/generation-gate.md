@@ -83,10 +83,12 @@ researched trend/reference it stakes + its one key + at most one sub color + a o
 (in the invoking user's language). This is the cheapest place to force real spread, so force it
 here — not while you code.
 
-**Proposer fan-out (default on).** Fan out independent proposer subagents (sonnet or better; never
-haiku), each grounded in Stage 1's findings, each proposing a few distinct directions; then dedup
-and merge into a slate that genuinely spans range. One model writing ten in a row drifts toward a
-single idea restyled; independent proposers break that.
+**Proposer fan-out (Rigorous tier; Quick uses one strong proposer).** In the **Rigorous** tier, fan out
+independent proposer subagents (sonnet or better; never haiku), each grounded in Stage 1's findings, each
+proposing a few distinct directions; then dedup and merge into a slate that spans range. In the **Quick**
+default, one strong proposer drafts the slate and the distinctness skeptic (Stage 3) catches convergence
+before any build — cheaper, and enough for a taste pick. Either way: one model writing ten in a row drifts
+toward a single idea restyled; the fan-out or the distinctness gate breaks that.
 
 Keep Round 1's palette discipline: each direction commits to one key + at most one sub color.
 
@@ -135,18 +137,15 @@ opus, never haiku; the strongest available model for synthesis. Two GATE lenses:
 
 **Judgment.** A synthesizer (opus) reads both skeptics. **Any GATE failure → revise the slate**
 (pull fresher or more directions; push the merged ones apart) **and re-verify from the start** — do
-not patch one entry and ship. Only a slate no skeptic can break proceeds to build. Round 1 runs the
-full fan-out; later taste rounds may run lighter (the carried-over winner already constrains
-divergence), but never zero.
+not patch one entry and ship. Only a slate no skeptic can break proceeds to build. The **Rigorous** tier runs separate skeptics (Round 1
+fullest, later rounds lighter as the carried-over winner constrains divergence); the **Quick** default
+merges them into a single direction-skeptic pass (see *Cost / scope controls*). Never zero.
 
-The recency lens is **not a novelty ratchet**: a timeless, restrained choice a today-designer would
-still make passes — restraint is never itself the failure. But "timeless" is not a free pass. A
-restrained direction still fails if it is a **framework default masquerading as restraint** (literal
-off-the-shelf design-system tokens — Tailwind `gray-900` + `blue-600` + `amber-500` straight off the
-list) or if it **cites no logged source**. Timeless restraint is a *deliberate, authored* choice — a
-chosen off-black, a bespoke neutral, tied to the round's research — not the default skin relabeled
-"quiet premium." It fails *staleness* (the training-default look, the default-token skin, the
-"researched then ignored it" move) — not restraint.
+The recency lens is **not a novelty ratchet**: a restrained, timeless choice a today-designer would still
+make passes — it fails only *staleness* (the training-default look, an off-the-shelf default-token skin,
+the "researched then ignored it" move), never restraint. Timeless restraint is a *deliberate, authored,
+sourced* choice, not the default design-system skin relabeled "quiet premium." (The verbatim skeptic above
+carries the rule and its example — don't re-derive it here.)
 
 ### The AI-default-hue check (the purple / indigo bias)
 
@@ -158,12 +157,11 @@ the direction gate, give it verbatim:
 > "Look at this slate's colors for a {product} aimed at {audience}. (1) Is the slate's hue range
 > **collapsed into the cool blue / indigo / purple family** — do the directions differ on type, mood,
 > or layout but not on **hue**? A taste round should span warm / cool / neutral-led options, so a
-> single-hue-family slate FAILS hue-spread. (2) Is the **key color the model's reflex** (indigo /
-> violet / generic tech-blue) reached for with NO meaning-or-research justification? That fails as a
-> training default. But do NOT penalize a purple / blue that the brand's meaning + this round's
-> segment research actually call for (luxury, beauty, fintech-trust) — the target is the *default*,
-> not the hue. Return which directions are default-hue, the slate's hue span, and whether the key
-> colors are justified."
+> unjustified single-hue-family slate FAILS hue-spread. Do NOT force variety onto a slate whose
+> single-hue commitment the brand's meaning + this round's research actually call for (a beauty brand's
+> purple) — the target is the *default collapse*, not the hue. (Whether an individual key color is a
+> reflex default token is the **recency** lens's job; this lens judges the slate's hue *span*.) Return
+> the slate's hue span and whether any single-hue commitment is justified."
 
 **Escape the default, don't ban a hue.** A *justified* purple/blue (meaning + research) passes; a
 *reflex* purple (or a slate collapsed into one cool family) fails. This is the color-specific twin of
@@ -210,67 +208,63 @@ Profile — give it verbatim:
 
 A failing candidate substitutes the effect or is cut — this gates the **pick**, not just the apply.
 
-**Craft legs — gate the pick on the axes color already gates.** The build must honor the slate's craft
-claims and clear these. **Most are static** (read the JSX / className — always-on, zero browser tokens);
-the few that need pixels **escalate to a render** (claude-in-chrome), and a sub-check with no render is
-**UNVERIFIED**, never a silent PASS. Batch them in one pass per candidate; give each verbatim:
+**Craft legs — a small pick-time core; the rest gated to the round or moved to apply.** The pick is a
+*taste* judgment ("no wrong answer"), so verification here stays light — do **not** run a full
+ship-readiness QA before the user has chosen. Three tiers:
 
-- **Accessibility (static, every round incl. greenfield — `aria-*` preservation gives greenfield no
-  baseline).** "Is every interactive element a real control (`button`/`a`/`input`) or a `<div>`/`<span>`
-  with onClick? Every icon-only control an accessible name? Every meaningful image `alt` (decorative
-  `aria-hidden`)? Exactly one `main` landmark + a sane heading order? Any tap target under ~44px at 375px
-  (e.g. `h-7 w-7` = 28px)? Any `outline:none` / `focus:outline-none` with no visible replacement ring?
-  Assume inaccessible until each is proven; file:line."
-- **Spacing coherence (static).** "Extract every distinct padding / margin / gap as file:line. Do they
-  reduce to ONE step scale (multiples of the declared base)? Steady stacked-section vertical rhythm? Do
-  columns / gutters match the declared grid? Assume ad-hoc until a scale is proven."
-- **Typography craft (static + 1:1 render for measure).** "Do role sizes derive from the declared ratio
-  (no ad-hoc near-duplicates)? >2 families or a fake fork? Body ≥~16px / secondary ≥~14px? Is running
-  text's measure bounded (~45-75ch — check `max-w` / container)?" For **type rounds view at 1:1, not the
-  0.5 thumbnail** (it hides small-type failure exactly where the pick happens).
-- **Interaction feedback & motion safety (static).** "Does every control show a visible, distinct response
-  for hover AND keyboard-focus (a real ring — never bare `outline:none`) AND pressed/active AND disabled?
-  Does every animation / transition / autoplay respect `prefers-reduced-motion` (media query /
-  `useReducedMotion`)? Is any state (selected / error / required / status) distinguishable ONLY by color,
-  with no icon / text / shape backup?"
-- **Visual hierarchy (RENDER — squint / blur, not a code read).** "Name the element the eye lands on
-  FIRST; is it the one that carries this screen's job? Assume FLAT until a dominant element is proven.
-  FAIL if 2+ elements compete for first fixation, OR adjacent type levels don't visibly step in
-  size+weight, OR more than one element reads as primary (count filled buttons, bold headings, accent
-  blocks, elevated cards). Do not reward decorative dominance." Generalizes the tool-screen dominance rule
-  to **every** screen.
-- **Content stress (RENDER with torture data — name DIMENSIONS, never specific strings, so it never
-  dates).** For every field from the real data model, render a **MIN** (0/1 char, empty, 1 item) and a
-  **MAX** (longest plausible unbroken token, N× items, max-digit locale-formatted number, each
-  count-string at 0/1/2/many). "Assume the demo data is a lie. Find every field that clips, overflows,
-  wraps ugly, or misaligns; file:line." Swap the torture fixtures in yourself.
-- **i18n robustness (conditional on the Brief — RENDER).** Only when the Brief says the target ships in
-  >1 language or an RTL locale. (a) **Pseudo-localize** key labels / nav / buttons at +40% length (or the
-  longest target-locale string) → FAIL on truncation / overlap / horizontal scroll. (b) **RTL** —
-  re-render each surface `dir=rtl` → return every un-mirrored element and physical-side style (`ml-`/`mr-`,
-  literal `←`/`‹`/`›`) with its logical-property fix (`ms-`/`me-`, `start`/`end`, mirrored glyph).
+- **Always-on at the pick (static, cheap).** The code review above already covers the "not broken" basics
+  (scroll / 375px overflow / half-styled / tsc); add only **real semantic controls** (interactive elements
+  are `button`/`a`/`input`, not `<div onClick>`), a **visible focus ring** (no bare `outline:none`), and a
+  **visual-hierarchy squint of the 0.5 thumbnail the user already sees** — one clear focal element, type
+  levels that step, only one thing reading as "primary." These need no extra render and protect "can this
+  even be judged."
+- **Axis-gated at the pick.** Run the **typography** leg only on a type round, the **spacing** leg only on
+  a layout round — a tone round doesn't pay them. Verbatim:
+  - *Typography (type rounds):* "Do role sizes derive from the declared ratio (no ad-hoc near-duplicates)?
+    >2 families or a fake fork? Body ≥~16px / secondary ≥~14px? Running text's measure bounded (~45–75ch)?"
+    View type rounds at **1:1, not the 0.5 thumbnail**.
+  - *Spacing (layout rounds):* "Extract every distinct padding / margin / gap. Do they reduce to ONE step
+    scale? Steady vertical rhythm? Columns / gutters on the declared grid? Assume ad-hoc until proven."
+- **Moved to APPLY — ship-readiness QA (load-bearing when it ships, not when it's picked).** Full
+  **accessibility completeness** (semantic names, `alt`, one `main` landmark + heading order, **tap targets
+  ≥44px — or ≥24px with adequate spacing, WCAG 2.5.8**), **interaction/motion safety** (hover/focus/pressed/
+  disabled feedback, `prefers-reduced-motion`, no state-by-color-alone), **content-stress** (MIN/MAX torture
+  data), and **i18n robustness** (pseudo-localize +40%, `dir=rtl` mirror) run in `applying.md`'s executed
+  apply gate on the **real screen with real data** — where a render always happens — not on ten taste mocks.
+  The pick-time squint still flags a flat winner early.
 
-A candidate that fails a leg is fixed or cut before it can win and seed later rounds. Record the winning
-**type scale + spacing scale** in the round `meta` so later rounds carry a real hierarchy forward, not a
-laundered flat one (see `log-format.md`).
+**Experimental slots (#7–#10) are exempt from the aesthetic legs** — a deliberately flat / brutalist /
+motion-forward swing is the *point* of those slots (`rounds.md`); run only the "genuinely broken" checks on
+them, so a bold option survives to the user's eye instead of being cut for breaking a craft norm.
 
-**Browser render smoke-check — recorded opt-in.** The candidate handoff *is* the human's render
-check — the user flips through the candidates on localhost — so automated browser verification is
-off by default to save tokens. **After the first round's first handoff, ask the user once** whether
-to run automated browser render verification going forward, **record the answer in
-`docs/picky-client.md`** (`browserRenderCheck: on | off`, see `log-format.md`), and honor it every
-later round without re-asking. The first round itself skips automated browser — the user sees it
-live.
+**Rendering is governed by the recorded `browserRenderCheck` opt-in (below).** When it is off (the default,
+and always Round 1), the pick-time legs use their **static proxy** — the 0.5 thumbnail the user is already
+looking at + a code read — and are **not** blocking-UNVERIFIED. A render only becomes *required* in
+`applying.md` at settle, where it always happens. Record the winning **type scale + spacing scale** in the
+round `meta` so later rounds carry a real hierarchy forward (see `log-format.md`).
 
-A candidate that fails is fixed and re-verified before it is shown; note what you cut or fixed in
-the log.
+**Browser render — recorded opt-in.** The candidate handoff *is* the human's render check (the user
+flips through candidates on localhost), so automated browser rendering is **off by default** and the
+pick-time legs use their static proxy. After the first handoff, ask once whether to turn it on, record
+`browserRenderCheck: on | off` in `docs/picky-client.md` (see `log-format.md`), and honor it. (The
+ship-readiness QA in `applying.md` renders regardless, at settle.) A candidate that fails is fixed and
+re-verified before it is shown; note what you cut or fixed in the log.
 
-## Cost / scope controls
+## Cost / scope controls — pick a tier
 
-- **Round 1** — full pipeline: full research sweep, proposer fan-out, both gates at full strength.
-- **Later taste rounds** — research refreshes only the axis in play; gates run lighter (fewer
-  skeptics) because the carried winner constrains divergence. Lighter, never skipped.
-- **Browser render** — the recorded opt-in above.
+The pick is fast and low-friction *by design*; scale the machinery to the ask, and **name the tier you
+ran** in the log. Neither tier skips the load-bearing spine (research, distinctness, the always-on "is it
+broken" review).
+
+- **Quick (default — including a plain Round 1).** One strong proposer + the direction check (distinctness
+  + recency + hue) as a single merged skeptic pass + the always-on code review + the pick-time craft core
+  (semantic controls, focus ring, hierarchy squint) + the axis-gated leg for what the round decides. Static
+  only, no browser renders. This is the "show me some looks and I'll pick" path.
+- **Rigorous (when the user asks for rigor, or a high-stakes screen).** Full proposer fan-out + separate
+  direction skeptics + browser renders on.
+
+Ship-readiness QA (a11y completeness, content-stress, i18n) always runs at **apply**, regardless of tier —
+it is load-bearing for shipping, not for a taste pick.
 
 ## Function rounds — two upgrades, no second pipeline
 

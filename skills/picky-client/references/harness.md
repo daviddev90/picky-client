@@ -42,9 +42,10 @@ A candidate for a native target is a **decision preview**, judged for design the
 ## Accessibility & craft — authoring rules (binding, every candidate)
 
 The Stage-5 craft legs (`generation-gate.md`) gate the pick on these, so author to them from the start.
-**The reference snippets in this file show STRUCTURE, not shippable values** — where one uses a
-sub-target size (`h-7 w-7` = 28px), a sub-14px label (`text-[11px]`), or a physical-side / LTR token
-(`ml-`/`mr-`, a literal `←`/`‹`/`›`), meet the rule below, not the literal px.
+**The reference snippets in this file show STRUCTURE, not shippable values** — where one uses a sub-14px
+label (`text-[11px]` / `text-[13px]`) or a physical-side / LTR token (`ml-`/`mr-`, a literal `←`/`‹`/`›`),
+meet the rule below, not the literal px. (The harness remote itself must meet them — e.g. its pager
+buttons are `h-11 w-11` = 44px, not a sub-target size.)
 
 - **Semantic controls.** Every interactive element is a real `button` / `a` / `input`, never a styled
   `<div onClick>`; icon-only controls carry an accessible name (`aria-label`); meaningful images carry
@@ -521,9 +522,9 @@ export function HarnessChrome({ roundId, index, total }: { roundId: number; inde
       <span className="h-4 w-px" style={{ backgroundColor: theme.hairline }} aria-hidden="true" />
       {/* Pager also inside the left group (all buttons on the left) */}
       <div className="flex items-center gap-1">
-        <button type="button" aria-label="Previous candidate" disabled={index <= 1} className="grid h-7 w-7 place-items-center rounded-md text-[15px] hover:bg-white/5 disabled:opacity-30" style={{ color: theme.fg }} onClick={() => page(-1)}>‹</button>
+        <button type="button" aria-label="Previous candidate" disabled={index <= 1} className="grid h-11 w-11 place-items-center rounded-md text-[15px] hover:bg-white/5 disabled:opacity-30" style={{ color: theme.fg }} onClick={() => page(-1)}>‹</button>
         <span className="px-1 text-[13px] tabular-nums" style={{ color: theme.mute }}>{String(index).padStart(2, "0")}<span style={{ color: theme.sub }}>/{String(total).padStart(2, "0")}</span></span>
-        <button type="button" aria-label="Next candidate" disabled={index >= total} className="grid h-7 w-7 place-items-center rounded-md text-[15px] hover:bg-white/5 disabled:opacity-30" style={{ color: theme.fg }} onClick={() => page(1)}>›</button>
+        <button type="button" aria-label="Next candidate" disabled={index >= total} className="grid h-11 w-11 place-items-center rounded-md text-[15px] hover:bg-white/5 disabled:opacity-30" style={{ color: theme.fg }} onClick={() => page(1)}>›</button>
       </div>
       <AnimatePresence>
         {open ? (

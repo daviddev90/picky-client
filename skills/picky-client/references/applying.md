@@ -159,6 +159,32 @@ which forces the executed drive above.
 Log the render artifact + a per-state verdict (PASS / FAIL / UNVERIFIED) in `docs/picky-client.md`
 (see `log-format.md`).
 
+### Ship-readiness QA (a11y, content, i18n, motion) — runs here, on the real screen
+
+These verify the design is *shippable*, not just picked. They are deliberately kept OFF the taste pick (a
+taste round has "no wrong answer", and ten mocks don't merit a full QA); they run **here**, once, on the
+real rendered screen with real data — where a render always happens. Batch them into the executed pass
+above:
+
+- **Accessibility completeness.** "Is every icon-only control accessibly named? Every meaningful image
+  `alt` (decorative `aria-hidden`)? Exactly one `main` landmark + a sane heading order? Any tap target
+  under ~44px (or ~24px with adequate spacing, WCAG 2.5.8)? Any `outline:none` with no visible replacement
+  ring? file:line." (The pick-time core already ensured real controls + a focus ring; this completes it.)
+- **Interaction / motion safety.** "Does every control show distinct hover / focus / pressed / disabled
+  feedback? Does every animation respect `prefers-reduced-motion`? Is any state (selected / error /
+  status) signalled ONLY by color, with no icon / text / shape backup?"
+- **Content stress (name DIMENSIONS, never specific strings).** For every field from the real data model,
+  render a MIN (0/1 char, empty, 1 item) and a MAX (longest plausible unbroken token, N× items, max-digit
+  locale-formatted number, each count-string at 0/1/2/many). "Assume the demo data is a lie — find every
+  field that clips, overflows, wraps ugly, or misaligns; file:line."
+- **i18n robustness (only if the Brief marks >1 language / an RTL locale).** (a) Pseudo-localize key
+  labels / nav / buttons at +40% length → FAIL on truncation / overlap / horizontal scroll. (b) Re-render
+  `dir=rtl` → return every un-mirrored element and physical-side style (`ml-`/`mr-`, literal `←`/`‹`/`›`)
+  with its logical fix (`ms-`/`me-`, `start`/`end`, mirrored glyph).
+
+Any FAIL → fix and re-verify. No render available (e.g. native without a simulator) → the affected check
+is **UNVERIFIED**, never a silent PASS.
+
 ## Greenfield & native (no existing component)
 
 When there is nothing to restyle (a new screen, or a greenfield native target), apply = **generate
