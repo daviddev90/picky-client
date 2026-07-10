@@ -39,6 +39,30 @@ A candidate for a native target is a **decision preview**, judged for design the
 - Stay inside the **Target Capability Profile** (Brief) — the portability leg (`generation-gate.md`)
   cuts a candidate whose sole differentiator cannot be reproduced natively.
 
+## Accessibility & craft — authoring rules (binding, every candidate)
+
+The Stage-5 craft legs (`generation-gate.md`) gate the pick on these, so author to them from the start.
+**The reference snippets in this file show STRUCTURE, not shippable values** — where one uses a
+sub-target size (`h-7 w-7` = 28px), a sub-14px label (`text-[11px]`), or a physical-side / LTR token
+(`ml-`/`mr-`, a literal `←`/`‹`/`›`), meet the rule below, not the literal px.
+
+- **Semantic controls.** Every interactive element is a real `button` / `a` / `input`, never a styled
+  `<div onClick>`; icon-only controls carry an accessible name (`aria-label`); meaningful images carry
+  `alt` (decorative → `aria-hidden`); one `main` landmark + a sane heading order.
+- **Tap targets ≥44px** (or ≥24px with adequate spacing, WCAG 2.5.8) at phone width — including the
+  pager arrows and the accordion chevron.
+- **Visible focus ring.** Never `outline:none` / `focus:outline-none` without a clearly visible
+  replacement; every control shows distinct hover / focus / pressed / disabled feedback.
+- **Readable type.** Body ≥~16px, secondary ≥~14px; running text measure ~45-75ch (bound with `max-w`);
+  role sizes derive from one scale.
+- **Respect `prefers-reduced-motion`** (`useReducedMotion` / `motion-reduce:`), and never signal state
+  (selected / error / status) by color alone — add an icon / text / shape backup.
+- **Logical properties for RTL.** Prefer `ms-`/`me-`, `ps-`/`pe-`, `start`/`end` over `ml-`/`mr-`, and
+  mirror directional glyphs under `dir=rtl`. (Fires when the Brief marks an RTL locale.)
+- **Stress content.** Author length-robust: `min-w-0` on flex children, wrap or truncate deliberately,
+  no fixed widths sized to the demo string; survive the longest string, most / fewest items, largest
+  number.
+
 ## Two surfaces (not three)
 
 The harness has **two** surfaces, joined by an accordion:

@@ -32,14 +32,15 @@ into the target idiom. Template:
 ## Tokens (intent + reference web value + per-platform mapping)
 - color roles:  bg / surface / fg / muted / accent / border / danger …  (hex per role)
   palette mode: <fixed brand palette | adopt platform dynamic color (Material You)>
-- type:      role → { web: px/rem + family; iOS: semantic text style; Android: sp + type role }
-- spacing:   scale (web rem) → target spacing unit
+- type:      base size + scale ratio (role sizes derive from it) · role → { web: px/rem + family; iOS: semantic text style; Android: sp + type role } · per-role leading
+- spacing:   base unit + step scale + grid (columns / gutter / container max-width) → target spacing unit
 - radii:     role → value
 - elevation: "<intent, e.g. card one level above surface>" → { web: box-shadow; iOS: material/hairline level; Android: dp + tonal surface }
 - motion:    "<intent, e.g. quick decisive ~200ms ease-out>" → { web: duration+bezier; iOS: spring response/damping; Android: motion token }
 
 ## Screen anatomy
 - regions / hierarchy: <...>
+- focal element + emphasis budget: <the ONE element the eye lands on first; how many elements read as primary>
 - key components: <...>
 - states: <default | loading | empty | error | disabled | dark> — each tagged **DECIDED** (shown in
   the tournament) or **UNDECIDED** (never shown; decided at apply)

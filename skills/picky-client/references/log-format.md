@@ -28,6 +28,7 @@ Screen: <greenfield | existing-with-logic — path to the real component>
 Capability profile (non-web): <native techniques vs unavailable/discouraged, one line>
 Token scope: <central source: Tailwind @theme / MUI / Compose MaterialTheme / CSS vars / none> · <one-screen skin | app-wide adoption> · <fixed palette | dynamic color (Material You)>
 State ledger (existing-with-logic): <default · loading · empty · error · disabled · dark → DECIDED / UNDECIDED each>
+i18n: <ships in >1 language? · target locales incl. any RTL?>
 
 ---
 
@@ -35,7 +36,8 @@ State ledger (existing-with-logic): <default · loading · empty · error · dis
 Status: decided · Winner: #3
 Decides: tone & manner (1 key color + ≤1 sub color)
 Grounding: searched "<derived keywords>" across blogs / community threads / galleries → <one-line gist of what's current>
-Gates: direction gate passed (revised ×1) · error gate: 1 fixed
+Gates: direction gate passed (revised ×1) · error gate + craft legs (a11y / hierarchy / spacing / type / content-stress / motion): 1 fixed
+Scales: type <base / ratio> · spacing <base / step> (carried forward to later rounds)
 
 | # | Title | Key / Sub color | Rationale |
 |---|-------|-----------------|-----------|

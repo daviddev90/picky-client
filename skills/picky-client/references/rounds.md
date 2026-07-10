@@ -162,6 +162,14 @@ survive that, up front.
   differentiator can't be reproduced natively. On an **existing-with-logic** target, every candidate
   must host the real component's feature/state inventory (`generation-gate.md`): a winner that omits a
   load-bearing control is not shippable.
+- **Clear the craft gates, not just the vibe.** Each direction declares its focal element + emphasis
+  budget, a coherent type block (base + ratio + ≤1 display / 1 text family + leading), and a spacing
+  scale (`generation-gate.md` Stage 2). The rendered legs (Stage 5) fail a **flat hierarchy**, **ad-hoc
+  spacing**, **unbounded measure / sub-14px body**, **inaccessible controls** (styled `<div onClick>`,
+  no focus ring, <44px targets), **missing state feedback**, and a layout that **only survives tidy demo
+  data**. A pretty slate that fails these is not a real option. A **typography round** decides the type
+  block and is gated on scale coherence + bounded measure + readable size — viewed at 1:1, not the 0.5
+  thumbnail.
 
 ## Surfaces that share chrome or state (incl. redesigning the harness itself)
 

@@ -90,6 +90,16 @@ single idea restyled; independent proposers break that.
 
 Keep Round 1's palette discipline: each direction commits to one key + at most one sub color.
 
+**Each direction also declares its craft claims** (text, so Stage 3 can refute them and Stage 5 can
+check the build honored them):
+
+- **Focal element + emphasis budget** — the ONE thing the eye should hit first, and how many elements
+  may read as "primary" (aim for one).
+- **Type block** — base size + scale ratio + role→step map + **≤1 display / 1 text family** + per-role
+  leading.
+- **Spacing** — base unit + step scale + density stance + grid intent (columns / gutter / container
+  max-width).
+
 ## Stage 3 — direction gate (adversarial, before building)
 
 Verify the *slate* before spending any build effort. Fan out refuting skeptics — one lens each,
@@ -159,6 +169,14 @@ the direction gate, give it verbatim:
 *reflex* purple (or a slate collapsed into one cool family) fails. This is the color-specific twin of
 the recency lens — same failure (the training prior), narrowed to hue.
 
+### Craft-claim coherence (refute the Stage-2 claims on the text slate)
+
+The craft claims each direction declares (Stage 2) are refuted here too, cheaply, before any build: a
+**type block** with a role size off its ratio, two roles under one step apart, >2 families, or a fake
+fork swapping a near-identical face; a **spacing** set that isn't one scale; a direction with **no single
+focal element** or more than one thing claimed "primary." Fix them before building — the rendered legs in
+Stage 5 then verify the build actually honored the surviving claims.
+
 ## Stage 4 — build the candidates
 
 Build the 10 React candidates from the **approved** slate. User-facing copy comes from
@@ -191,6 +209,50 @@ Profile — give it verbatim:
 > native-faithful substitute."
 
 A failing candidate substitutes the effect or is cut — this gates the **pick**, not just the apply.
+
+**Craft legs — gate the pick on the axes color already gates.** The build must honor the slate's craft
+claims and clear these. **Most are static** (read the JSX / className — always-on, zero browser tokens);
+the few that need pixels **escalate to a render** (claude-in-chrome), and a sub-check with no render is
+**UNVERIFIED**, never a silent PASS. Batch them in one pass per candidate; give each verbatim:
+
+- **Accessibility (static, every round incl. greenfield — `aria-*` preservation gives greenfield no
+  baseline).** "Is every interactive element a real control (`button`/`a`/`input`) or a `<div>`/`<span>`
+  with onClick? Every icon-only control an accessible name? Every meaningful image `alt` (decorative
+  `aria-hidden`)? Exactly one `main` landmark + a sane heading order? Any tap target under ~44px at 375px
+  (e.g. `h-7 w-7` = 28px)? Any `outline:none` / `focus:outline-none` with no visible replacement ring?
+  Assume inaccessible until each is proven; file:line."
+- **Spacing coherence (static).** "Extract every distinct padding / margin / gap as file:line. Do they
+  reduce to ONE step scale (multiples of the declared base)? Steady stacked-section vertical rhythm? Do
+  columns / gutters match the declared grid? Assume ad-hoc until a scale is proven."
+- **Typography craft (static + 1:1 render for measure).** "Do role sizes derive from the declared ratio
+  (no ad-hoc near-duplicates)? >2 families or a fake fork? Body ≥~16px / secondary ≥~14px? Is running
+  text's measure bounded (~45-75ch — check `max-w` / container)?" For **type rounds view at 1:1, not the
+  0.5 thumbnail** (it hides small-type failure exactly where the pick happens).
+- **Interaction feedback & motion safety (static).** "Does every control show a visible, distinct response
+  for hover AND keyboard-focus (a real ring — never bare `outline:none`) AND pressed/active AND disabled?
+  Does every animation / transition / autoplay respect `prefers-reduced-motion` (media query /
+  `useReducedMotion`)? Is any state (selected / error / required / status) distinguishable ONLY by color,
+  with no icon / text / shape backup?"
+- **Visual hierarchy (RENDER — squint / blur, not a code read).** "Name the element the eye lands on
+  FIRST; is it the one that carries this screen's job? Assume FLAT until a dominant element is proven.
+  FAIL if 2+ elements compete for first fixation, OR adjacent type levels don't visibly step in
+  size+weight, OR more than one element reads as primary (count filled buttons, bold headings, accent
+  blocks, elevated cards). Do not reward decorative dominance." Generalizes the tool-screen dominance rule
+  to **every** screen.
+- **Content stress (RENDER with torture data — name DIMENSIONS, never specific strings, so it never
+  dates).** For every field from the real data model, render a **MIN** (0/1 char, empty, 1 item) and a
+  **MAX** (longest plausible unbroken token, N× items, max-digit locale-formatted number, each
+  count-string at 0/1/2/many). "Assume the demo data is a lie. Find every field that clips, overflows,
+  wraps ugly, or misaligns; file:line." Swap the torture fixtures in yourself.
+- **i18n robustness (conditional on the Brief — RENDER).** Only when the Brief says the target ships in
+  >1 language or an RTL locale. (a) **Pseudo-localize** key labels / nav / buttons at +40% length (or the
+  longest target-locale string) → FAIL on truncation / overlap / horizontal scroll. (b) **RTL** —
+  re-render each surface `dir=rtl` → return every un-mirrored element and physical-side style (`ml-`/`mr-`,
+  literal `←`/`‹`/`›`) with its logical-property fix (`ms-`/`me-`, `start`/`end`, mirrored glyph).
+
+A candidate that fails a leg is fixed or cut before it can win and seed later rounds. Record the winning
+**type scale + spacing scale** in the round `meta` so later rounds carry a real hierarchy forward, not a
+laundered flat one (see `log-format.md`).
 
 **Browser render smoke-check — recorded opt-in.** The candidate handoff *is* the human's render
 check — the user flips through the candidates on localhost — so automated browser verification is

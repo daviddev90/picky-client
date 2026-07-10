@@ -53,10 +53,11 @@ run the dev server, and tell the user exactly where to look.
    decides in one line (e.g. "Round 1 — design tone & manner") and name the real screen(s) the
    candidates depict. **On first setup capture the target in the Brief** (see `log-format.md`): the
    render stack (React+Tailwind / other web / Android Compose / iOS SwiftUI / Flutter / inline-CSS),
-   **greenfield vs existing-with-logic**, the **Target Capability Profile** (non-web), and the
-   **token / design-system scope**. These are enforced downstream (the portability leg in
-   `generation-gate.md`, and `applying.md`) — not notes. If it's not Round 1, derive the decision from
-   the previous winner.
+   **greenfield vs existing-with-logic**, the **Target Capability Profile** (non-web), the
+   **token / design-system scope**, and whether it **ships in >1 language / any RTL locale** (drives the
+   i18n legs in `generation-gate.md`). These are enforced downstream (the portability, i18n, and craft
+   legs in `generation-gate.md`, and `applying.md`) — not notes. If it's not Round 1, derive the decision
+   from the previous winner.
 2. **Triage, then generate through the gate.** Classify what the round decides (*Decision triage*
    below), then run the **generation pipeline** in `references/generation-gate.md` — generation is
    research-grounded and adversarially gated, not draw-ten-and-mount:
@@ -243,8 +244,17 @@ broken can't be judged on its design:
   Motion / Framer Motion, and whatever else the project's stack fixes — using each
   library's current, idiomatic API. If unsure of an API, check its docs rather than
   guessing.
-- **Finished feel.** Real content, real spacing, no lorem-ipsum rubble or half-styled
-  states. The user is judging taste, so remove anything that distracts from it.
+- **Finished feel — at stress extremes.** Real content and real spacing, no lorem-ipsum rubble or
+  half-styled states — but rendered at its **stress extremes, not a flattering middle**: the longest
+  plausible string, the most and fewest items, the largest number. "Real" must not mean "tidy" (that
+  flatters a fragile layout).
+- **One clear focal point / real hierarchy.** Every screen has a single element the eye lands on first,
+  and adjacent type levels visibly step (size + weight); more than one element shouting "primary" (filled
+  buttons, bold headings, elevated cards) is a fail. Generalizes the work-surface dominance rule to every
+  screen (`generation-gate.md` craft legs).
+- **Accessible & semantic.** Real controls (`button` / `a` / `input`, not a styled `<div onClick>`), an
+  accessible name on every icon-only control, `alt` on meaningful images, one `main` landmark + a sane
+  heading order, **tap targets ≥44px**, and a **visible focus ring** (never bare `outline:none`).
 - **Only what the surface renders.** Each candidate depicts one real screen and shows only
   the elements and states that actually occur there — never a control or status that lives
   on a *sibling* surface (a candidate pager, a "Now viewing" marker, or a browse-progress
