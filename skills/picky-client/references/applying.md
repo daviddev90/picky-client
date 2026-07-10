@@ -133,17 +133,18 @@ Branch on **"do covering tests exist?"**
      guard (double-submit), a simplified `canToggle && isPublic !== null` guard (toggle leaks to
      non-owners), a dropped optimistic-update rollback.
   2. **Drive it live:** from the pre-restyle baseline, **exercise each interactive element and visit
-     each state** in the browser (claude-in-chrome), diffing after-vs-baseline.
+     each state** in a real browser (the environment's browser driver — see *Browser render tooling*
+     in SKILL.md), diffing after-vs-baseline.
 
 Never read an empty test suite's "tests pass" as green. **No covering tests = behavior UNVERIFIED**,
 which forces the executed drive above.
 
 ### Visual parity — verified against the spec, not the mock's pixels
 
-- **Mandate an executed render** of the restyled **real** screen with **real data** — claude-in-chrome
-  for web; a simulator/emulator screenshot or snapshot test for native. **No PASS on a static code
-  read.** If no render can be captured (e.g. no simulator available), the verdict is **UNVERIFIED**,
-  never PASS.
+- **Mandate an executed render** of the restyled **real** screen with **real data** — the environment's
+  browser driver for web (see *Browser render tooling* in SKILL.md); a simulator/emulator screenshot or
+  snapshot test for native. **No PASS on a static code read.** If no render can be captured (e.g. no
+  simulator available), the verdict is **UNVERIFIED**, never PASS.
 - **Compare to the spec (token / intent conformance), not the mock's pixels** — translation to another
   idiom necessarily changes pixels.
 - **Rubric.** PASS-permitted deltas: sub-pixel / reset / font-hinting, host global styles. FAIL

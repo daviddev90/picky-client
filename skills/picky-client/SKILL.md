@@ -276,6 +276,26 @@ one word for the candidate/draft in that language and use it across every chrome
 so they never drift. The one exception is the tool-brand `PICKY-CLIENT DRAFTS` (H1 + header
 label), which stays fixed in every language as the tool's own identity.
 
+## Browser render tooling
+
+Any step that renders a candidate or the real screen in an **actual browser** — the opt-in
+`browserRenderCheck` (`generation-gate.md`) and the executed-render gate at apply
+(`applying.md`) — uses the browser driver **this environment provides**, chosen in order:
+
+1. **A recorded user preference wins.** If `docs/picky-client.md` settings or the project's
+   memory names a driver, use that one.
+2. **Else the harness default.** Claude Code → `claude-in-chrome` (the preferred driver where
+   it exists). Codex / other harnesses → that harness's own browser tool, or a **Playwright
+   MCP** server if one is already connected.
+3. **If no driver is available, do not install one.** Ask the user which tool to use (or
+   whether to skip this render check) and wait for the answer. Until then the render is
+   **UNVERIFIED** — a static code read never counts as PASS (`applying.md`).
+
+The verification steps never hardcode a tool name; they name the *capability* (render in a
+real browser) and defer *which tool* to this ladder, so the skill stays portable across
+harnesses. `agents/openai.yaml` may *declare* a Codex browser-tool dependency, but the
+selection logic lives here — the Agent Skills standard has no automatic per-platform dispatch.
+
 ## Logging — keep `docs/picky-client.md` current
 
 `docs/picky-client.md` (at the project root) is the source of truth for the whole
