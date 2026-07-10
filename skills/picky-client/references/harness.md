@@ -8,6 +8,37 @@ This targets the project's fixed stack: **React + TypeScript + Vite + React Rout
 Tailwind + Motion (Framer Motion)**. If a project differs, keep the same shape and adapt
 the integration points (route registration, glob import).
 
+## Harness modes — web target vs non-web / native target
+
+**Web target** (React or another web stack): mount the harness **in the project** as described here —
+`src/picky-client/`, route registration, glob import, the `// [picky-client]` capsule, and the
+`removing.md` teardown.
+
+**Non-web / native target** (Android Compose / iOS SwiftUI / Flutter / an inline-CSS app with no web
+host): there is **no React app to mount into**, so the harness is a **standalone web-preview project**
+— candidates are web mocks for *deciding* only, not shippable native code.
+
+- **Scaffold** a throwaway app in a named location (a sibling `picky-preview/`, or the scratchpad):
+  `npm create vite@latest picky-preview -- --template react-ts`, add Tailwind + Motion + React Router,
+  and drop `src/picky-client/` into it exactly as below.
+- **Precondition:** Node present. If the native team has no Node toolchain, say so and offer to run the
+  preview elsewhere — do not assume it.
+- **Log path:** `docs/picky-client.md` still lives in the **real** project root (the durable record);
+  the preview app is disposable.
+- **Teardown:** delete the **whole preview directory** when done — not the `removing.md` capsule dance
+  (that is for the in-project web mode).
+
+### Authoring non-web candidates
+
+A candidate for a native target is a **decision preview**, judged for design then translated at apply
+(`applying.md`). Author it to reflect the real device, not an edge-to-edge browser rectangle:
+
+- Draw a **status-bar / safe-area frame**; keep primary actions **out of the home-indicator /
+  gesture-bar zone**.
+- Depict the **native navigation pattern** (nav bar + back gesture, or bottom tab bar), not web nav.
+- Stay inside the **Target Capability Profile** (Brief) — the portability leg (`generation-gate.md`)
+  cuts a candidate whose sole differentiator cannot be reproduced natively.
+
 ## Two surfaces (not three)
 
 The harness has **two** surfaces, joined by an accordion:

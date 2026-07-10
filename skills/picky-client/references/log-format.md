@@ -21,7 +21,13 @@ rounds in ascending order so the lineage reads top-to-bottom.
 ## Brief
 
 <1–3 lines: what UI/page this tournament is improving, and any fixed constraints
-the user gave — stack, brand rules, must-keep elements, audience/language.>
+the user gave — brand rules, must-keep elements, audience/language.>
+
+Target: <render stack: React+Tailwind | other web | Android Compose | iOS SwiftUI | Flutter | inline-CSS>
+Screen: <greenfield | existing-with-logic — path to the real component>
+Capability profile (non-web): <native techniques vs unavailable/discouraged, one line>
+Token scope: <central source: Tailwind @theme / MUI / Compose MaterialTheme / CSS vars / none> · <one-screen skin | app-wide adoption> · <fixed palette | dynamic color (Material You)>
+State ledger (existing-with-logic): <default · loading · empty · error · disabled · dark → DECIDED / UNDECIDED each>
 
 ---
 
@@ -126,3 +132,28 @@ Notes: <pending user pick>
 
 Keep the table in sync with the actual files under `src/picky-client/rounds/round{N}/` —
 the log and the harness should never disagree about what the candidates are.
+
+- **Target / State ledger / Settled + Applied** — the Brief's `Target`, `Screen`, `Capability
+  profile`, and `Token scope` lines are captured once and **enforced** downstream (portability leg in
+  `generation-gate.md`, and `applying.md`), not decoration. The `State ledger` marks which states the
+  tournament actually decided vs which are settled at apply. The **Settled + Applied** block (below)
+  is written once, at settle, and is the record that the apply did not break the original.
+
+## Settled + Applied (written once, at settle)
+
+When the user settles the design, record the application (method in `applying.md`):
+
+```markdown
+## Settled + Applied
+Design spec: docs/picky-client-design.md
+Structural reconciliation: <1:1 hostable | migration plan below>
+  - <feature> → <maps to region | needs new state | KEPT | DROPPED (user-approved)>
+Token scope: <replace | map | coexist> · <one-screen | app-wide> · edited: <files>
+Apply commits: <sha(s)> (restyle) · <sha> (shared tokens, separate)
+Gate — no regression: <tests ran | static-preservation diff + live drive> → <PASS | UNVERIFIED>
+Gate — visual parity (per state):
+  | state   | verdict              |
+  |---------|----------------------|
+  | default | PASS / FAIL / UNVERIFIED |
+  | error   | …                    |
+```

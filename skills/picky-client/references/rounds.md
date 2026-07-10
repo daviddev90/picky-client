@@ -152,6 +152,11 @@ survive that, up front.
   the ten slots.
 - Still respect the project's constraints and the non-negotiable quality bar (no double
   scroll, mobile-first, finished feel). Bold ≠ broken.
+- **Stay shippable to the target.** On a non-web target, trend/experimental directions stay inside the
+  Target Capability Profile — the portability leg in `generation-gate.md` cuts a candidate whose sole
+  differentiator can't be reproduced natively. On an **existing-with-logic** target, every candidate
+  must host the real component's feature/state inventory (`generation-gate.md`): a winner that omits a
+  load-bearing control is not shippable.
 
 ## Surfaces that share chrome or state (incl. redesigning the harness itself)
 

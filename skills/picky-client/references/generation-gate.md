@@ -29,6 +29,24 @@ Taste rounds run the whole pipeline. Function/convention rounds keep their conve
 Stage 3 is the gate that fixes staleness. Do not skip it to "save time" — it runs on cheap text,
 before any component exists.
 
+## Target-aware generation (before Stage 1)
+
+The Brief (see SKILL.md / `log-format.md`) captures the **target render stack** and, for non-web
+targets, a **Target Capability Profile** — techniques that are native (iOS system materials + springs;
+Android Material You dynamic color + tonal elevation + ripple) vs unavailable/discouraged (arbitrary
+blur radii, hover-on-touch, web box-shadow stacks). Two constraints follow:
+
+- **Author within the profile.** Candidates — especially the bold experimental slots — stay inside
+  what the target can reproduce. The **portability leg** of the error gate (Stage 5) enforces it, so an
+  un-shippable pick cannot win and seed later rounds.
+- **Existing-with-logic targets: feed the real component in.** Before generating, inventory the real
+  component **from code** — regions, handlers, conditional branches, features, routes, `aria-*`, and
+  every non-default state (loading / empty / error / disabled / dark) + its load-bearing logic.
+  Candidates must have a **home for every existing feature** so a winner never omits a load-bearing
+  control. Mark each state **DECIDED** (shown in the tournament) vs **UNDECIDED** (decided at apply —
+  see `applying.md`). This shapes **structure** only; the "only what the surface renders" bar still
+  forbids faking un-reached states in the mock.
+
 ## Stage 1 — forced live research
 
 Mandatory every taste round. Round 1 gets a full sweep; later taste rounds refresh the axis in
@@ -140,6 +158,18 @@ and eslint clean. Give the reviewer verbatim:
 > lorem/placeholder rubble; any control or status that belongs to a *sibling* surface (a pager, a
 > 'now viewing' marker, a redrawn harness remote); the work surface not dominating (tool screens);
 > tsc or eslint errors. Assume it is broken until each is checked. Return each defect as file:line."
+
+**Target portability (non-web / native targets).** Each candidate carries a
+`reproducible-on-target: yes | notes` line, checked by a skeptic against the Brief's Target Capability
+Profile — give it verbatim:
+
+> "For target {platform}: name each visual/motion technique this candidate relies on (backdrop-blur,
+> layered shadows, hover states, spring-vs-bezier motion, custom controls). Mark any technique with no
+> faithful native analog on {platform}. If an un-reproducible technique is the candidate's SOLE
+> differentiator, the candidate FAILS — it must not win and seed later rounds. Suggest the nearest
+> native-faithful substitute."
+
+A failing candidate substitutes the effect or is cut — this gates the **pick**, not just the apply.
 
 **Browser render smoke-check — recorded opt-in.** The candidate handoff *is* the human's render
 check — the user flips through the candidates on localhost — so automated browser verification is

@@ -39,17 +39,24 @@ run the dev server, and tell the user exactly where to look.
 - **One axis at a time.** Each round decides one thing (tone, then type, then layout…).
   Compounding small, confident picks produces a coherent design without one giant
   ambiguous "make it look good" step.
-- **Real renders, not mockups.** Candidates are actual React components rendered in the
-  project's stack, so what the user picks is what they ship.
+- **Real renders, not mockups.** Candidates are actual React components rendered on `localhost`, so
+  the user judges the real thing. For a greenfield React+Tailwind screen the winner is near-shippable
+  as-is; for a native or existing-with-logic screen the pick is the *design* you ship — ported onto the
+  real component non-destructively at settle (see `references/applying.md`).
 - **A durable record.** Every round, candidate, rationale, and winner is logged in
   `docs/picky-client.md`, so the process survives across sessions and someone can see
   *why* the design is what it is.
 
 ## The core loop
 
-1. **Name the decision — and the surface it lives on.** State what this round decides in
-   one line (e.g. "Round 1 — design tone & manner"), and name the real screen(s) the
-   candidates depict. If it's not Round 1, derive the decision from the previous winner.
+1. **Name the decision, the surface — and, on first setup, the target.** State what this round
+   decides in one line (e.g. "Round 1 — design tone & manner") and name the real screen(s) the
+   candidates depict. **On first setup capture the target in the Brief** (see `log-format.md`): the
+   render stack (React+Tailwind / other web / Android Compose / iOS SwiftUI / Flutter / inline-CSS),
+   **greenfield vs existing-with-logic**, the **Target Capability Profile** (non-web), and the
+   **token / design-system scope**. These are enforced downstream (the portability leg in
+   `generation-gate.md`, and `applying.md`) — not notes. If it's not Round 1, derive the decision from
+   the previous winner.
 2. **Triage, then generate through the gate.** Classify what the round decides (*Decision triage*
    below), then run the **generation pipeline** in `references/generation-gate.md` — generation is
    research-grounded and adversarially gated, not draw-ten-and-mount:
@@ -77,8 +84,21 @@ run the dev server, and tell the user exactly where to look.
    #2–#10 are 9 variations of it. For a **function/convention** round, carry the winner
    then follow the convergent path (3–5 grounded candidates, no experimental quota) —
    don't manufacture nine variations just to reach ten.
+7. **Settle, then apply.** The tournament ends on an explicit **"the design is settled / finalize"**
+   step from the user — it otherwise has no defined end. At settle, **apply the accumulated winner to
+   the real app** (the final round's carryover encodes all prior axes) following
+   `references/applying.md`. A mid-tournament "apply it now" is an explicit **partial/preview**
+   application, clearly logged as such, never the durable spec. Even without re-reading `applying.md`,
+   applying is **hard-gated** and never a blind graft: (1) **enumerate** the real component from code
+   (every region, handler, branch, route, `aria-*`, state) and **reconcile** it against the winner's
+   anatomy — a structural difference **STOPs** for a user-approved keep-or-drop migration plan, never a
+   silent drop; (2) **restyle, don't replace**, on a clean-tree rollback commit; (3) **verify by
+   execution** — run tests if they exist, else a static structural-preservation diff (every prop /
+   handler / branch / route / `aria-*` preserved) plus a live browser drive; a rendered check of the
+   real screen, or the verdict is **UNVERIFIED**, never a static-only PASS. Full procedure in
+   `applying.md`.
 
-Repeat until the user is happy with the design or stops.
+Repeat rounds 2–6 until the user settles; then run step 7 once (or stops).
 
 ## Decision triage — taste or function
 
@@ -293,6 +313,11 @@ Read these as you need them — don't inline their contents into your reasoning 
   the cold-read drafting loop and keyword/action-first fallback. Read before any round whose
   target has user-facing copy (run the copy gate — see *Copy is a settled axis*).
 - `references/log-format.md` — The exact structure for `docs/picky-client.md`.
+- `references/applying.md` — **Applying the settled design to the real app without breaking it.** The
+  stack-neutral design spec (`docs/picky-client-design.md`), the three pre-steps (structural
+  reconciliation, token/scope reconciliation, rollback discipline), state handling, and the executed
+  application gate (no-regression branch + spec-conformance visual parity with allow/deny lists). Read
+  at **settle**, before applying — and for the target-capture fields it depends on.
 
 ## Helper script
 
