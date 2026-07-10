@@ -138,6 +138,27 @@ chosen off-black, a bespoke neutral, tied to the round's research — not the de
 "quiet premium." It fails *staleness* (the training-default look, the default-token skin, the
 "researched then ignored it" move) — not restraint.
 
+### The AI-default-hue check (the purple / indigo bias)
+
+LLMs emit the statistical average of their training data, and for "design" that average is a **cool
+blue → indigo → purple family** (Tailwind's `indigo-500` default + the 2015–2020 SaaS / gradient era).
+Recall drifts straight into it, so a taste round's colors need an explicit guard — run it as part of
+the direction gate, give it verbatim:
+
+> "Look at this slate's colors for a {product} aimed at {audience}. (1) Is the slate's hue range
+> **collapsed into the cool blue / indigo / purple family** — do the directions differ on type, mood,
+> or layout but not on **hue**? A taste round should span warm / cool / neutral-led options, so a
+> single-hue-family slate FAILS hue-spread. (2) Is the **key color the model's reflex** (indigo /
+> violet / generic tech-blue) reached for with NO meaning-or-research justification? That fails as a
+> training default. But do NOT penalize a purple / blue that the brand's meaning + this round's
+> segment research actually call for (luxury, beauty, fintech-trust) — the target is the *default*,
+> not the hue. Return which directions are default-hue, the slate's hue span, and whether the key
+> colors are justified."
+
+**Escape the default, don't ban a hue.** A *justified* purple/blue (meaning + research) passes; a
+*reflex* purple (or a slate collapsed into one cool family) fails. This is the color-specific twin of
+the recency lens — same failure (the training prior), narrowed to hue.
+
 ## Stage 4 — build the candidates
 
 Build the 10 React candidates from the **approved** slate. User-facing copy comes from

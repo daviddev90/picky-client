@@ -25,6 +25,11 @@ color.** No third accent, no rainbow. The discipline forces a genuine commitment
 mood and keeps the ten distinguishable. Neutrals (white/black/grays) are the canvas and
 don't count against the one-key/one-sub limit.
 
+Choose each key color from the product's **meaning + this round's segment research**, and make the
+slate **span hue** (warm / cool / neutral-led) — don't let it collapse into the model's reflex, the
+**AI-default cool-blue / indigo / purple**. The *hue-bias check* in `generation-gate.md` (Stage 3)
+enforces this: a justified purple/blue passes, a reflex one (or a one-hue-family slate) fails.
+
 To show a tone on a real screen, render each candidate as the **same representative
 composition** — pick a screen that matters in the project (e.g. the page being improved)
 and render all ten with identical content but different tone/color so the comparison is
