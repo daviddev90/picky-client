@@ -1,5 +1,19 @@
 # Generation gate — research, slate, and the two adversarial gates
 
+## Contents
+
+- [The pipeline (taste rounds)](#the-pipeline-taste-rounds)
+- [Target-aware generation (before Stage 1)](#target-aware-generation-before-stage-1)
+- [Stage 1: forced live research](#stage-1--forced-live-research)
+- [Stage 2: direction slate (text first)](#stage-2--direction-slate-text-first)
+- [Stage 3: direction gate (adversarial, before building)](#stage-3--direction-gate-adversarial-before-building)
+  - [The AI-default-hue check (the purple / indigo bias)](#the-ai-default-hue-check-the-purple--indigo-bias)
+  - [Craft-claim coherence (refute the Stage-2 claims on the text slate)](#craft-claim-coherence-refute-the-stage-2-claims-on-the-text-slate)
+- [Stage 4: build the candidates](#stage-4--build-the-candidates)
+- [Stage 5: error gate (adversarial, after building)](#stage-5--error-gate-adversarial-after-building)
+- [Cost / scope controls: pick a tier](#cost--scope-controls--pick-a-tier)
+- [Function rounds: two upgrades, no second pipeline](#function-rounds--two-upgrades-no-second-pipeline)
+
 Everything between "name the decision" and "hand off the candidates". The core failure this file
 exists to stop: **candidates that are stale (this year's design language never appears) or
 convergent (ten options that are secretly three).** Both hide from a maker admiring their own
@@ -47,6 +61,14 @@ blur radii, hover-on-touch, web box-shadow stacks). Two constraints follow:
   see `applying.md`). This shapes **structure** only; the "only what the surface renders" bar still
   forbids faking un-reached states in the mock.
 
+**Design-system status (web or native) — a settled theme means no palette round.** Also before
+generating, resolve the Brief's design-system status (SKILL.md *Before you generate* / core loop step 1):
+if the target's theme/token system is **fixed**, color, typography-personality, and material are a
+**settled axis** — run no palette/tone tournament, build every candidate on the existing tokens, and vary
+only open axes (layout, structure, hierarchy, density, microinteractions). Stage 5's **design-system
+conformance** leg cuts any candidate that hardcodes an ad-hoc palette. Only a greenfield / "decide the
+theme" target runs the palette-committing Round 1.
+
 ## Stage 1 — forced live research
 
 Mandatory every taste round. Round 1 gets a full sweep; later taste rounds refresh the axis in
@@ -63,7 +85,8 @@ sources**, because each kind is blind to what the others surface:
 - **community discussion** — where designers argue about what feels current *right now* (forum and
   Reddit-style threads are *one* example; do not fixate on any single site);
 - **showcase galleries** — Dribbble / Behance / Awwwards-class, to see what is actually being made;
-- **design press / trend write-ups** — for named directions and the year's aesthetics.
+- **design press / trend write-ups** — for named directions and the year's aesthetics;
+- **real services** with the feature being designed or a similar role, to ground the product's actual use.
 
 Scope the search to the product's own segment — a fintech dashboard and a kids' app are not "web
 design" in general.
@@ -84,13 +107,16 @@ researched trend/reference it stakes + its one key + at most one sub color + a o
 here — not while you code.
 
 **Proposer fan-out (Rigorous tier; Quick uses one strong proposer).** In the **Rigorous** tier, fan out
-independent proposer subagents (sonnet or better; never haiku), each grounded in Stage 1's findings, each
+independent proposer subagents (inherit the Codex parent model; see SKILL.md → Codex execution), each grounded in Stage 1's findings, each
 proposing a few distinct directions; then dedup and merge into a slate that spans range. In the **Quick**
 default, one strong proposer drafts the slate and the distinctness skeptic (Stage 3) catches convergence
 before any build — cheaper, and enough for a taste pick. Either way: one model writing ten in a row drifts
 toward a single idea restyled; the fan-out or the distinctness gate breaks that.
 
-Keep Round 1's palette discipline: each direction commits to one key + at most one sub color.
+Keep Round 1's palette discipline: each direction commits to one key + at most one sub color. **(Void when
+the theme is fixed — see SKILL.md *Before you generate*: there is no palette round, so directions vary
+layout/structure and every candidate reads the existing design-system tokens instead of committing a
+color.)**
 
 **Each direction also declares its craft claims** (text, so Stage 3 can refute them and Stage 5 can
 check the build honored them):
@@ -105,7 +131,7 @@ check the build honored them):
 ## Stage 3 — direction gate (adversarial, before building)
 
 Verify the *slate* before spending any build effort. Fan out refuting skeptics — one lens each,
-opus, never haiku; the strongest available model for synthesis. Two GATE lenses:
+using the inherited Codex parent model for both review and synthesis. Two GATE lenses:
 
 | Lens | Status | Fails when |
 |---|---|---|
@@ -135,7 +161,7 @@ opus, never haiku; the strongest available model for synthesis. Two GATE lenses:
 > (differing only in a number, a shade, or a label), merge them. Count the real ideas. If fewer
 > than 10, the slate fails. Return the collapsed groups and the real-idea count."
 
-**Judgment.** A synthesizer (opus) reads both skeptics. **Any GATE failure → revise the slate**
+**Judgment.** A synthesizer using the inherited Codex parent model reads both skeptics. **Any GATE failure → revise the slate**
 (pull fresher or more directions; push the merged ones apart) **and re-verify from the start** — do
 not patch one entry and ship. Only a slate no skeptic can break proceeds to build. The **Rigorous** tier runs separate skeptics (Round 1
 fullest, later rounds lighter as the carried-over winner constrains divergence); the **Quick** default
@@ -177,6 +203,11 @@ Stage 5 then verify the build actually honored the surviving claims.
 
 ## Stage 4 — build the candidates
 
+Delegate each candidate or small batch to a build subagent under the ownership, model, and
+concurrency rules in SKILL.md → Codex execution. Give builders the approved slate entry and Brief.
+The orchestrator coordinates directions, checks, and logs. Inspect source when useful for review
+or debugging, and use actual renders to establish visual readiness.
+
 Build the 10 React candidates from the **approved** slate. User-facing copy comes from
 `vetted-copy.ts` (never hardcoded per candidate — see `harness.md`). Hold the Non-negotiable
 quality bar (SKILL.md). Because the slate is locked and already diverse, the builds inherit that
@@ -195,6 +226,21 @@ and eslint clean. Give the reviewer verbatim:
 > lorem/placeholder rubble; any control or status that belongs to a *sibling* surface (a pager, a
 > 'now viewing' marker, a redrawn harness remote); the work surface not dominating (tool screens);
 > tsc or eslint errors. Assume it is broken until each is checked. Return each defect as file:line."
+
+**Design-system conformance (when the theme is fixed — see SKILL.md *Before you generate* / core loop step
+1).** If the target has a fixed/confirmed token system, every candidate must render **through it**: a
+candidate that **hardcodes an ad-hoc palette** — literal hex / `rgb()` / named colors, a bespoke font
+stack, hardcoded `bg-*` / `text-*` values instead of the design-system tokens — is a **FAIL → rebuild it
+on the existing tokens** (import the theme; use the CSS vars / `.tk-*` / Tailwind theme tokens). This is
+not a taste call: with a fixed theme, palette / type / material are a settled axis and reinventing them is
+out of the round's scope. It applies to **every** candidate **including the experimental slots** — a bold
+swing varies *layout*, still on the fixed tokens. Give it verbatim:
+
+> "The target has a FIXED design system: {name the token source — CSS vars / `.tk-*` classes / Tailwind
+> `@theme` / theme module}. For candidate {N}, find every color, font-family, or material value that is
+> **hardcoded** (literal hex / rgb / named color, ad-hoc `bg-*` / `text-*`, a bespoke font) instead of
+> read from the design-system tokens. Any such value is a FAIL — the candidate reinvents a settled axis.
+> Return each as file:line with the token it should have used instead."
 
 **Target portability (non-web / native targets).** Each candidate carries a
 `reproducible-on-target: yes | notes` line, checked by a skeptic against the Brief's Target Capability
@@ -237,18 +283,16 @@ ship-readiness QA before the user has chosen. Three tiers:
 motion-forward swing is the *point* of those slots (`rounds.md`); run only the "genuinely broken" checks on
 them, so a bold option survives to the user's eye instead of being cut for breaking a craft norm.
 
-**Rendering is governed by the recorded `browserRenderCheck` opt-in (below).** When it is off (the default,
-and always Round 1), the pick-time legs use their **static proxy** — the 0.5 thumbnail the user is already
-looking at + a code read — and are **not** blocking-UNVERIFIED. A render only becomes *required* in
-`applying.md` at settle, where it always happens. Record the winning **type scale + spacing scale** in the
-round `meta` so later rounds carry a real hierarchy forward (see `log-format.md`).
+**Baseline browser verification is required before handoff.** Open the harness and representative
+candidates, exercise list/candidate navigation, and capture screenshots. Fix blocking defects before
+sharing the review URL. This baseline applies in every round and tier; the user's later inspection
+does not replace it. Record the winning type and spacing scales in round metadata for carryover.
 
-**Browser render — recorded opt-in.** The candidate handoff *is* the human's render check (the user
-flips through candidates on localhost), so automated browser rendering is **off by default** and the
-pick-time legs use their static proxy. After the first handoff, ask once whether to turn it on, record
-`browserRenderCheck: on | off` in `docs/picky-client.md` (see `log-format.md`), and honor it. (The
-ship-readiness QA in `applying.md` renders regardless, at settle.) A candidate that fails is fixed and
-re-verified before it is shown; note what you cut or fixed in the log.
+**Additional candidate-by-candidate browser review uses `browserRenderCheck: on | off`.** The default
+is off for additional coverage, not for baseline verification. Turn it on when the user requests
+that coverage or the agreed Rigorous tier calls for it. Record the setting and actual coverage in
+`docs/picky-client.md` and honor it without repeated confirmation. Scale additional review to the
+request. The application gate always renders the real screen regardless of this setting.
 
 ## Cost / scope controls — pick a tier
 
@@ -258,10 +302,10 @@ broken" review).
 
 - **Quick (default — including a plain Round 1).** One strong proposer + the direction check (distinctness
   + recency + hue) as a single merged skeptic pass + the always-on code review + the pick-time craft core
-  (semantic controls, focus ring, hierarchy squint) + the axis-gated leg for what the round decides. Static
-  only, no browser renders. This is the "show me some looks and I'll pick" path.
+  (semantic controls, focus ring, hierarchy squint) + the axis-gated leg for what the round decides.
+  Run baseline browser verification plus static checks, without additional per-candidate browser review.
 - **Rigorous (when the user asks for rigor, or a high-stakes screen).** Full proposer fan-out + separate
-  direction skeptics + browser renders on.
+  direction skeptics + baseline verification and additional per-candidate browser review on.
 
 Ship-readiness QA (a11y completeness, content-stress, i18n) always runs at **apply**, regardless of tier —
 it is load-bearing for shipping, not for a taste pick.

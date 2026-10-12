@@ -31,7 +31,7 @@ design is settled.
 5. **Seed the next round** from the winner. Repeat until you're happy.
 
 It also ships a **self-contained, language-neutral UX-writing gate** (`references/ux-writing.md`) for
-the rounds that decide the *words*: a production-question test and a six-lens adversarial gate that
+the rounds that decide the *words*: a production-question test and a seven-lens adversarial gate that
 catches over-purification (swapping a standard term the audience actually says for a "plainer"
 coinage) and other copy failures — in the user's own language.
 

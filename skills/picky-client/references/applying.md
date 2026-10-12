@@ -1,5 +1,19 @@
 # Applying the settled design — without breaking the original
 
+## Contents
+
+- [The durable design spec: `docs/picky-client-design.md`](#the-durable-design-spec--docspicky-client-designmd)
+- [Before you touch the app: three reconciliations](#before-you-touch-the-app--three-reconciliations)
+  - [A. Structural reconciliation (do this first, always)](#a-structural-reconciliation-do-this-first-always)
+  - [B. Token / design-system scope](#b-token--design-system-scope)
+  - [C. Rollback discipline](#c-rollback-discipline)
+- [Apply](#apply)
+- [The application gate: and it must actually execute](#the-application-gate--and-it-must-actually-execute)
+  - [No regression](#no-regression)
+  - [Visual parity: verified against the spec, not the mock's pixels](#visual-parity--verified-against-the-spec-not-the-mocks-pixels)
+  - [Ship-readiness QA (a11y, content, i18n, motion): runs here, on the real screen](#ship-readiness-qa-a11y-content-i18n-motion--runs-here-on-the-real-screen)
+- [Greenfield & native (no existing component)](#greenfield--native-no-existing-component)
+
 Everything from "the design is **settled**" to "the restyled **real** screen, verified." The
 tournament decides a *design*; this file ports that design onto the real product — which may be
 React+Tailwind, another web stack, or native (Android Compose / iOS SwiftUI / Flutter) — and proves
@@ -12,7 +26,7 @@ Two rules govern everything here:
   states). "What you pick is what you ship" is only literally true for a greenfield React+Tailwind
   screen; everywhere else the pick is the *design* you ship, ported here.
 - **Every guarantee must execute.** A gate that can't be run is not a PASS — it is **UNVERIFIED**.
-  Claude performs every step itself (never handed to the user).
+  Codex performs every step itself (never handed to the user).
 
 **When this runs.** Once, at **settle** — the user's explicit "the design is settled / finalize"
 step (see SKILL.md core loop). It applies the *accumulated* winner (the final round's carryover
@@ -115,7 +129,7 @@ per-platform mapping, not the mock's literal CSS.
 loading / empty / error / disabled / dark. For each non-default state: **render the restyled state**
 (extend the harness, or a scratch state gallery) and get a **quick user OK** — these states were
 never picked, so they get their own quick decision. Every **UNDECIDED** state **escalates to the
-user**; it is never Claude-invented and self-approved.
+user**; it is never agent-invented and self-approved.
 
 ## The application gate — and it must actually execute
 

@@ -1,5 +1,11 @@
 # Log format — docs/picky-client.md
 
+## Contents
+
+- [Template](#template)
+- [What each part is for](#what-each-part-is-for)
+- [Settled + Applied (written once, at settle)](#settled--applied-written-once-at-settle)
+
 `docs/picky-client.md` at the project root is the durable record of the whole tournament.
 It lets a later session resume mid-process and explains the design lineage ("why is the
 app this color?" → read the log). Update it whenever you create a round, add its
@@ -16,7 +22,7 @@ rounds in ascending order so the lineage reads top-to-bottom.
 > Project: <project name>
 > Harness: src/picky-client/ · Browse: /picky-drafts
 > Status: Round <N> in progress
-> Settings: browserRenderCheck: <on | off>   (asked once after Round 1's first handoff; then honored)
+> Settings: browserRenderCheck: <on | off>   (additional per-candidate browser coverage; baseline handoff check is required)
 
 ## Brief
 
@@ -80,10 +86,11 @@ Notes: <pending user pick>
 - **Per-round header** — `Status`, `Winner` (when decided), and `Decides` give a
   one-glance state of the tournament. `Base (carryover)` records the lineage for rounds
   after #1.
-- **Settings** — one line in the top block, at minimum `browserRenderCheck: on | off`. Asked
-  **once**, after Round 1's first handoff (the user eyeballs the candidates anyway, so automated
-  browser render verification is opt-in), then honored every later round without re-asking. See
-  `generation-gate.md` Stage 5.
+- **Settings** records `browserRenderCheck: on | off` for additional candidate-by-candidate browser
+  review. Default off retains the required baseline harness/representative-candidate verification.
+  Record an agreed change or Rigorous coverage without repeatedly asking. In each round's `Gates`,
+  record the actual baseline navigation/screenshots and any additional candidate coverage, with
+  evidence references. See `generation-gate.md` Stage 5.
 - **Grounding + Gates (every round)** — `Grounding` records the forced Stage-1 research as an
   auditable artifact: the queries actually run and a one-line gist of the sources/findings — taste
   rounds too, not just function rounds. `Gates` records the outcomes: whether the direction gate
@@ -119,7 +126,7 @@ Notes: <pending user pick>
   Decides: canvas / tool / panel placement
   Base (carryover): Round 2 #4
   Grounding: read src/photo_editor/{Editor,Toolbar}.tsx (confirmed left nav · fixed canvas);
-  searched "Photoshop Figma Procreate canvas tool-rail layout 2025" → common: maximize canvas +
+  searched "Photoshop Figma Procreate current canvas tool-rail layout" → common: maximize canvas +
   edge tool-rail + minimal chrome + floating panels
 
   | # | Kind | Title | Usability trade-off |

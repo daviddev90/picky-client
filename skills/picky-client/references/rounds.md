@@ -1,19 +1,28 @@
 # Round playbook
 
-How to fill a round with 10 candidates that are actually worth choosing between. The
-failure mode to avoid everywhere: ten variations that are secretly the same idea. Each
-candidate should be a real fork the user could live with.
-
 ## Contents
 
 - [Round 1: design tone & manner](#round-1-design-tone--manner)
 - [Researching current trends](#researching-current-trends)
+- [Function/convention decisions: the convergent path](#functionconvention-decisions--the-convergent-path)
 - [Rounds after #1: winner + 9 variations](#rounds-after-1-winner--9-variations)
 - [Making candidates genuinely distinct](#making-candidates-genuinely-distinct)
+- [Surfaces that share chrome or state (incl. redesigning the harness itself)](#surfaces-that-share-chrome-or-state-incl-redesigning-the-harness-itself)
 - [Proposing the next round](#proposing-the-next-round)
 - [Multiple winners](#multiple-winners)
 
+How to fill a round with 10 candidates that are actually worth choosing between. The
+failure mode to avoid everywhere: ten variations that are secretly the same idea. Each
+candidate should be a real fork the user could live with.
+
 ## Round 1: design tone & manner
+
+> **Only when the theme is open.** If the project already has a **fixed/confirmed design system** (CSS
+> vars, a `theme/` module, `.tk-*` / Tailwind `@theme` tokens the user hasn't asked to change), there is
+> **no** tone-&-manner round: color, type-personality, and material are settled. Skip this section — build
+> Round 1 on the **existing tokens** and make it a **layout/structure** round instead (see SKILL.md
+> *Before you generate* and core loop step 1). The palette-commitment rules below apply to an **open**
+> theme only.
 
 Round 1 commits to a **feeling and a palette spine** — not layout, not type details,
 not decoration. Everything later builds on it, so the ten options should span a real

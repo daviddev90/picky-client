@@ -1,5 +1,26 @@
 # Harness architecture
 
+## Contents
+
+- [Harness modes: web target vs non-web / native target](#harness-modes--web-target-vs-non-web--native-target)
+  - [Authoring non-web candidates](#authoring-non-web-candidates)
+- [Accessibility & craft: authoring rules (binding, every candidate)](#accessibility--craft--authoring-rules-binding-every-candidate)
+- [Two surfaces (not three)](#two-surfaces-not-three)
+- [File layout](#file-layout)
+- [Theme tokens](#theme-tokens)
+- [Harness copy](#harness-copy)
+- [The registry (auto-discovery)](#the-registry-auto-discovery)
+- [Route registration](#route-registration)
+- [Page: /picky-drafts (accordion main)](#page-picky-drafts-accordion-main)
+- [Page: /picky-drafts/:roundId/:index (candidate)](#page-picky-draftsroundidindex-candidate)
+- [RoundAccordion](#roundaccordion)
+- [HarnessBar (shared top bar)](#harnessbar-shared-top-bar)
+- [HarnessChrome (candidate-page remote)](#harnesschrome-candidate-page-remote)
+- [CandidatePreview](#candidatepreview)
+- [No double scroll](#no-double-scroll)
+- [Mobile-first and motion](#mobile-first-and-motion)
+- [Candidate authoring contract](#candidate-authoring-contract)
+
 The harness is the small app the user clicks through to run the tournament. It is
 **dev-only** and self-contained under `src/picky-client/`. It auto-discovers rounds and
 candidates from the filesystem, so adding a round is just adding files — no router edits.
@@ -80,23 +101,6 @@ The harness has **two** surfaces, joined by an accordion:
 
 > Route name: default `/picky-drafts`. **If the project already uses that path, propose an
 > alternative** (`/_picky`, `/design-drafts`, …) and confirm with the user before wiring.
-
-## Contents
-
-- [File layout](#file-layout)
-- [Theme tokens](#theme-tokens)
-- [Harness copy](#harness-copy)
-- [The registry (auto-discovery)](#the-registry-auto-discovery)
-- [Route registration](#route-registration)
-- [Page: /picky-drafts (accordion main)](#page-picky-drafts-accordion-main)
-- [Page: /picky-drafts/:roundId/:index (candidate)](#page-picky-draftsroundidindex-candidate)
-- [RoundAccordion](#roundaccordion)
-- [HarnessBar](#harnessbar-shared-top-bar)
-- [HarnessChrome (candidate-page remote)](#harnesschrome-candidate-page-remote)
-- [CandidatePreview](#candidatepreview)
-- [No double scroll](#no-double-scroll)
-- [Mobile-first and motion](#mobile-first-and-motion)
-- [Candidate authoring contract](#candidate-authoring-contract)
 
 ## File layout
 
