@@ -26,7 +26,7 @@ Two rules govern everything here:
   states). "What you pick is what you ship" is only literally true for a greenfield React+Tailwind
   screen; everywhere else the pick is the *design* you ship, ported here.
 - **Every guarantee must execute.** A gate that can't be run is not a PASS — it is **UNVERIFIED**.
-  Codex performs every step itself (never handed to the user).
+  The agent performs every step itself (never handed to the user).
 
 **When this runs.** Once, at **settle** — the user's explicit "the design is settled / finalize"
 step (see SKILL.md core loop). It applies the *accumulated* winner (the final round's carryover

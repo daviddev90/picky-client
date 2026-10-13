@@ -1,74 +1,91 @@
 # picky-client
 
-**Pick-driven UI/UX design for [Claude Code](https://claude.com/claude-code).** Instead of
-guessing one design and editing it forever, picky-client presents **candidate drafts (시안)** as a
-tournament — you flip through real, rendered options on `localhost` and pick the one you like. The
-winner seeds the next round with fresh variations, and decisions compound round by round until the
-design is settled.
+Choose a UI/UX direction by comparing real drafts. picky-client researches relevant examples, builds distinct candidates, and presents them in a removable review harness. Your pick guides the next round, and the settled design is applied to the real product.
 
-> Most people can't *describe* the design they want, but they know it the instant they see it.
-> picky-client turns a blank-page decision into a quick pick.
+Taste rounds offer ten directions. Functional decisions offer three to five grounded options with usability trade-offs. Candidates preserve the existing theme, product behavior, and reviewed copy.
 
-## Why it works
+## Install as a skill
 
-- **Choosing beats specifying.** Ten concrete options beat one vague brief.
-- **One axis at a time.** Each round decides one thing — tone, then type, then layout, then copy —
-  so small confident picks compound into a coherent design.
-- **Real renders, not mockups.** Candidates are actual React components in *your* stack, so what you
-  pick is what you ship.
-- **A durable record.** Every round, candidate, rationale, and winner is logged in
-  `docs/picky-client.md`, so the process survives across sessions.
-
-## How it works
-
-1. **Name the decision** and the screen it lives on (e.g. "Round 1 — tone & manner").
-2. **Triage** — *taste* decisions (tone, color, type, mood) run as a 10-way tournament; *function*
-   decisions (layout, control placement, navigation) converge on 3–5 grounded options with a
-   trade-off critique.
-3. **Mount the candidates** in a tiny dev-only review harness under `src/picky-client/`.
-4. **Browse & pick** at `/picky-drafts` — an accordion of rounds; open a round, click any candidate
-   full-screen, decide.
-5. **Seed the next round** from the winner. Repeat until you're happy.
-
-It also ships a **self-contained, language-neutral UX-writing gate** (`references/ux-writing.md`) for
-the rounds that decide the *words*: a production-question test and a seven-lens adversarial gate that
-catches over-purification (swapping a standard term the audience actually says for a "plainer"
-coinage) and other copy failures — in the user's own language.
-
-## Install
+The canonical skill lives in [skills/picky-client](skills/picky-client). From your project directory, run the [Skills CLI](https://github.com/vercel-labs/skills) with Node.js 22.20.0 or later:
 
 ```bash
-# add this marketplace (public GitHub repo)
-/plugin marketplace add daviddev90/picky-client
-# install the plugin
-/plugin install picky-client@daviddev90
+npx skills add daviddev90/picky-client --skill picky-client
 ```
 
-Or non-interactively:
+Select your agent when prompted, or specify its ID:
+
+```bash
+npx skills add daviddev90/picky-client --skill picky-client --agent opencode -y
+npx skills add daviddev90/picky-client --skill picky-client --agent antigravity -y
+```
+
+| Agent | `--agent` ID |
+|---|---|
+| Codex | `codex` |
+| Claude Code | `claude-code` |
+| OpenCode, including oh-my-opencode | `opencode` |
+| Antigravity IDE | `antigravity` |
+| Antigravity CLI | `antigravity-cli` |
+| Cursor | `cursor` |
+| GitHub Copilot | `github-copilot` |
+| Gemini CLI | `gemini-cli` |
+| Cline | `cline` |
+| Windsurf | `windsurf` |
+
+Installation is project-local by default. Add `-g` to install at the agent's user-wide location. For manual project installation, copy the entire `skills/picky-client` folder into `.agents/skills/`, a supported skill location in [OpenCode](https://opencode.ai/docs/skills/) and [Antigravity](https://antigravity.google/docs/skills?app=antigravity-ide). oh-my-opencode uses OpenCode's skill installation.
+
+## Install as a native plugin
+
+### Claude Code
+
+From your terminal, with Claude Code 2.1.292 or later:
+
+```bash
+claude plugin install picky-client --marketplace daviddev90/picky-client
+```
+
+For older versions, use the two-command installation:
 
 ```bash
 claude plugin marketplace add daviddev90/picky-client
 claude plugin install picky-client@daviddev90
 ```
 
+Inside a Claude Code session, version 2.1.275 or later supports `/plugin install picky-client --marketplace daviddev90/picky-client`. See [Claude Code plugin installation](https://code.claude.com/docs/en/discover-plugins).
+
+### Codex
+
+From your terminal:
+
+```bash
+codex plugin marketplace add daviddev90/picky-client
+codex plugin add picky-client@daviddev90
+```
+
+Inside Codex, use `/plugins` to browse plugins. See the [Codex CLI reference](https://learn.chatgpt.com/docs/cli/reference).
+
+Both native plugins use the canonical root `skills/` directory. The root [plugin.json](plugin.json) packages the portable/Codex plugin, and [.claude-plugin/plugin.json](.claude-plugin/plugin.json) provides the Claude Code compatibility manifest. See the [plugin packaging documentation](https://developers.openai.com/plugins/build/plugins).
+
 ## Use
 
-Once installed, just ask — in **any language**:
+Ask in your working language:
 
-- "picky-client로 톤앤매너 시안 만들어줘"
-- "make a few versions of this hero and I'll pick"
-- "让我们用一场 tournament 决定这个页面的风格"
+> Use picky-client to make layout drafts for this screen so I can choose.
 
-Candidates and all harness/UI copy render in the language you're working in; only the tool's own
-`PICKY-CLIENT DRAFTS` label is fixed.
+| Installation | Explicit invocation |
+|---|---|
+| Codex plugin | `$picky-client:picky-client` |
+| Codex standalone skill | `$picky-client` |
+| Claude Code plugin | `/picky-client:picky-client` |
+| Claude Code standalone skill | `/picky-client` |
 
-## Requirements & scope
+In other agents, ask to use picky-client. The agent shares a reachable review URL, logs decisions in your project's `docs/picky-client.md`, and waits for your selection. Candidates and review labels use your working language; the tool name remains `PICKY-CLIENT DRAFTS`.
 
-- Targets **React + TypeScript + Vite + React Router + Tailwind + Motion (Framer Motion)**. Other
-  stacks work with small adaptations (see `references/harness.md`); the auto-discovery registry uses
-  Vite's `import.meta.glob`, which needs a webpack `require.context` / manual list on Next.js.
-- The harness is **dev-only** and must be **removed before a production build** — it's a self-contained
-  capsule (one folder + tagged mount lines) you delete before deploy. See `references/removing.md`.
+## Review harness
+
+The supplied harness uses React, TypeScript, Vite, React Router, Tailwind, and Motion. Other stacks adapt the integration points; native targets use a web preview before the design is applied in their own stack. The harness is development-only and is removed before production builds.
+
+Browser renders verify readiness. Hosts with subagents delegate builds and reviews; other hosts perform the checks sequentially and record same-agent review. Read the [skill](skills/picky-client/SKILL.md) for the workflow and [docs](docs/README.md) for a historical example.
 
 ## License
 

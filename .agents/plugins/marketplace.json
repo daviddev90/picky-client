@@ -6,17 +6,17 @@
   "plugins": [
     {
       "name": "picky-client",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "source": {
         "source": "local",
-        "path": "./plugins/picky-client"
+        "path": "./"
       },
       "policy": {
         "installation": "AVAILABLE",
         "authentication": "ON_INSTALL"
       },
       "category": "Productivity",
-      "description": "Pick-driven UI/UX design tournament + a language-neutral UX-writing gate."
+      "description": "Compare rendered UI/UX drafts, choose a design direction, and apply it with shared UX copy."
     }
   ]
 }

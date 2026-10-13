@@ -9,17 +9,20 @@ Build a browsable review harness for the user's design decision. Distinguish can
 for review, the user's selection, a settled design, and its verified application to the app.
 Inspecting or installing this skill does not start a design round.
 
-## Codex execution
+## Host execution
 
-Follow the user's request and applicable project instructions. Read references relative to this
-skill's installed directory, and discover optional skills from the current skill catalog.
+Follow the user's request and applicable project instructions, including tooling and model rules.
+Read references relative to this skill's installed directory and discover optional skills through
+the host's available skill catalog.
 
-Delegate candidate implementation to build subagents, with explicit file ownership. Keep shared
-harness and copy files under one owner. Follow user/project model instructions; otherwise inherit
-the parent's model and reasoning settings. Batch independent builds and reviews within the
-available concurrency slots, counting the parent. Give independent reviewers the brief and raw
-evidence without the author's conclusions. Source inspection can support debugging and review;
-actual browser renders establish visual readiness.
+When native subagents are available, delegate candidate builds with explicit file ownership.
+Keep shared harness and copy files under one owner. Follow user/project model instructions;
+otherwise use the host's default inheritance. Batch independent work within the host's concurrency
+limits. Give independent reviewers the brief and raw evidence without the author's conclusions.
+When subagents are unavailable, build candidates and run each review pass sequentially. Record
+these as same-agent reviews, including cold-read approximations; do not label them independent
+or zero-knowledge. These execution rules apply to every delegation and review in the references.
+Actual browser renders establish visual readiness.
 
 ## Before you generate
 
@@ -127,8 +130,8 @@ checks actually performed and do not install browser integrations without author
 For the ten-candidate taste path, the existing scaffold creates round metadata and candidate stubs:
 
 ```bash
-node "${CODEX_HOME:-$HOME/.codex}/skills/picky-client/scripts/scaffold_round.mjs" <projectRoot> <roundNumber> ["what this round decides"] ["short title"]
+node "<installed-skill-dir>/scripts/scaffold_round.mjs" <projectRoot> <roundNumber> ["what this round decides"] ["short title"]
 ```
 
-Substitute the installed skill directory for a non-default installation. Use the actual smaller
+Replace `<installed-skill-dir>` with the directory containing this SKILL.md. Use the actual smaller
 candidate set for function rounds; do not present unused scaffold stubs as candidates.

@@ -107,7 +107,7 @@ researched trend/reference it stakes + its one key + at most one sub color + a o
 here — not while you code.
 
 **Proposer fan-out (Rigorous tier; Quick uses one strong proposer).** In the **Rigorous** tier, fan out
-independent proposer subagents (inherit the Codex parent model; see SKILL.md → Codex execution), each grounded in Stage 1's findings, each
+independent proposer subagents (follow SKILL.md → Host execution), each grounded in Stage 1's findings, each
 proposing a few distinct directions; then dedup and merge into a slate that spans range. In the **Quick**
 default, one strong proposer drafts the slate and the distinctness skeptic (Stage 3) catches convergence
 before any build — cheaper, and enough for a taste pick. Either way: one model writing ten in a row drifts
@@ -131,7 +131,7 @@ check the build honored them):
 ## Stage 3 — direction gate (adversarial, before building)
 
 Verify the *slate* before spending any build effort. Fan out refuting skeptics — one lens each,
-using the inherited Codex parent model for both review and synthesis. Two GATE lenses:
+following SKILL.md → Host execution for review and synthesis. Two GATE lenses:
 
 | Lens | Status | Fails when |
 |---|---|---|
@@ -161,7 +161,7 @@ using the inherited Codex parent model for both review and synthesis. Two GATE l
 > (differing only in a number, a shade, or a label), merge them. Count the real ideas. If fewer
 > than 10, the slate fails. Return the collapsed groups and the real-idea count."
 
-**Judgment.** A synthesizer using the inherited Codex parent model reads both skeptics. **Any GATE failure → revise the slate**
+**Judgment.** A synthesizer following SKILL.md → Host execution reads both skeptics. **Any GATE failure → revise the slate**
 (pull fresher or more directions; push the merged ones apart) **and re-verify from the start** — do
 not patch one entry and ship. Only a slate no skeptic can break proceeds to build. The **Rigorous** tier runs separate skeptics (Round 1
 fullest, later rounds lighter as the carried-over winner constrains divergence); the **Quick** default
@@ -204,7 +204,7 @@ Stage 5 then verify the build actually honored the surviving claims.
 ## Stage 4 — build the candidates
 
 Delegate each candidate or small batch to a build subagent under the ownership, model, and
-concurrency rules in SKILL.md → Codex execution. Give builders the approved slate entry and Brief.
+concurrency rules in SKILL.md → Host execution. Give builders the approved slate entry and Brief.
 The orchestrator coordinates directions, checks, and logs. Inspect source when useful for review
 or debugging, and use actual renders to establish visual readiness.
 

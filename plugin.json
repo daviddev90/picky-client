@@ -1,0 +1,38 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "picky-client",
+  "version": "1.1.0",
+  "description": "Compare rendered UI/UX drafts, choose a design direction, and apply it with shared UX copy.",
+  "author": {
+    "name": "daviddev90"
+  },
+  "homepage": "https://github.com/daviddev90/picky-client",
+  "repository": "https://github.com/daviddev90/picky-client",
+  "license": "MIT",
+  "keywords": [
+    "design",
+    "ui",
+    "ux",
+    "ux-writing",
+    "skills",
+    "codex",
+    "tournament",
+    "picky-client"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "picky-client",
+        "shortDescription": "Choose a screen design by comparing rendered drafts.",
+        "longDescription": "Compare real rendered candidates in a development review harness, choose a winner each round, and apply the settled design. Includes a language-neutral UX-writing gate.",
+        "developerName": "daviddev90",
+        "category": "Productivity",
+        "capabilities": [
+          "Interactive",
+          "Read",
+          "Write"
+        ]
+      }
+    }
+  }
+}

@@ -22,7 +22,7 @@ gate and candidate generation run in parallel; the swap is free).
 ## The gate lives in the `ux-writing` skill — use it, don't re-derive it
 
 **The copy method and its gate are one artifact, and it is the `ux-writing` skill.** Invoke it
-(read its `SKILL.md` from the current Codex skill catalog, if installed) and run the gate from there:
+(read its `SKILL.md` from the host's available skill catalog, if installed) and run the gate from there:
 
 - `SKILL.md` — the seven lenses, the gate table, the production question, the two structural
   failures the gate is shaped around.
@@ -45,7 +45,7 @@ stopped, and nobody notices, because both files look complete. One source, or dr
 ### If `ux-writing` is not installed on this machine
 
 picky-client is deliberately self-contained, so the gate must not vanish when the skill is
-absent. If `ux-writing` is not available in the current Codex skill catalog, **run this reduced gate rather than
+absent. If `ux-writing` is not available in the host's available skill catalog, **run this reduced gate rather than
 skipping the gate** — and say in the round log that you ran the fallback, because it is weaker.
 
 **Bind first.** Read `docs/ux-writing-profile.md` (create it if absent): who the audience is
@@ -81,8 +81,8 @@ machine re-inserts the coinage you just removed). Two columns: the string, and i
 ② Self red-team each string: for every GATE lens write the strongest *attack* first, then answer
 it — never record a PASS you didn't try to break, and never these two ("it's not a coinage →
 PASS", "it reads fine aloud → PASS"). ③ Fan out **one refuting skeptic per lens (seven)**, told
-to *break* the string, not rate it — using the inherited Codex parent model for review and synthesis,
-batched within available concurrency slots (see SKILL.md → Codex execution). The fan-out is load-bearing: the author's ear habituates within minutes.
+to *break* the string, not rate it — following the model and concurrency rules in SKILL.md → Host execution. Use native subagents
+when available; otherwise run the seven lens passes sequentially and log same-agent review.
 ④ Judge by the table. Any GATE break and it does not ship — rewrite **from the word up**, except
 a Purpose failure, which is rewritten **from the slot's job down** because its words were never
 the defect. Re-verify from the start; the rewrite is a new string. If a spec, a style guide,
@@ -92,10 +92,13 @@ propose a correction to those instructions instead of silently overriding or rew
 
 ## Cold-read loop — a drafting aid (not the gate)
 
-Useful while *drafting* entry copy, especially "does a newcomer get what this is": write →
+With native subagents, useful while *drafting* entry copy, especially "does a newcomer get what this is": write →
 give a **zero-knowledge** subagent *only the visible text* and ask it to guess the service +
 confidence ("I'm not sure" is signal) → a second agent that knows the product checks whether
 the guess matched and whether the copy is clumsy/natural → revise, loop a few times.
+
+Without subagents, run a separate text-only reading pass and log it as a same-agent approximation,
+with no zero-knowledge claim.
 
 **But cold-read confidence rewards over-purification** (a made-up transparent word reads
 "clearer" than the real term), so never ship on cold-read alone — always follow with the

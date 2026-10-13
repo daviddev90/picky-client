@@ -22,6 +22,7 @@ rounds in ascending order so the lineage reads top-to-bottom.
 > Project: <project name>
 > Harness: src/picky-client/ · Browse: /picky-drafts
 > Status: Round <N> in progress
+> Review method: <native subagents | same-agent sequential passes>
 > Settings: browserRenderCheck: <on | off>   (additional per-candidate browser coverage; baseline handoff check is required)
 
 ## Brief

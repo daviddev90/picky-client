@@ -1,12 +1,15 @@
 {
   "name": "daviddev90",
-  "description": "daviddev90's Claude Code plugins — starting with picky-client (pick-driven UI/UX design + a UX-writing gate).",
-  "owner": { "name": "daviddev90" },
+  "description": "daviddev90 coding-agent plugins",
+  "owner": {
+    "name": "daviddev90"
+  },
   "plugins": [
     {
       "name": "picky-client",
       "source": "./",
-      "description": "Pick-driven UI/UX design tournament + a language-neutral UX-writing gate."
+      "description": "Compare rendered UI/UX drafts, choose a design direction, and apply it with shared UX copy.",
+      "version": "1.1.0"
     }
   ]
 }
