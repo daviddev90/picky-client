@@ -4,6 +4,20 @@ Choose a UI/UX direction by comparing real drafts. picky-client researches relev
 
 Taste rounds offer ten directions. Functional decisions offer three to five grounded options with usability trade-offs. Candidates preserve the existing theme, product behavior, and reviewed copy.
 
+## Ask your coding agent to install (recommended)
+
+Copy either prompt into your coding agent:
+
+```text
+Read the README at https://github.com/daviddev90/picky-client.git and install picky-client in your own agent environment.
+```
+
+```text
+https://github.com/daviddev90/picky-client.git 저장소의 README를 읽고, 지금 사용 중인 에이전트 환경에 picky-client를 설치해 주세요.
+```
+
+For the installing agent: use the native plugin instructions below for Codex or Claude Code, and the matching Skills CLI agent ID for other hosts. Honor the user's requested installation scope; otherwise keep the installer defaults. Install the full skill folder, including its references, scripts, and assets. Verify actual skill discovery, then report the invocation and any reload steps required by the host.
+
 ## Install as a skill
 
 The canonical skill lives in [skills/picky-client](skills/picky-client). From your project directory, run the [Skills CLI](https://github.com/vercel-labs/skills) with Node.js 22.20.0 or later:
