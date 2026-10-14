@@ -1,32 +1,90 @@
 # picky-client
 
-Choose a UI/UX direction by comparing real drafts. picky-client researches relevant examples, builds distinct candidates, and presents them in a removable review harness. Your pick guides the next round, and the settled design is applied to the real product.
+**English** · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
 
-Taste rounds offer ten directions. Functional decisions offer three to five grounded options with usability trade-offs. Candidates preserve the existing theme, product behavior, and reviewed copy.
+**Let your agent design. Be the picky client. Push your service’s design quality to the limit.**
 
-## Ask your coding agent to install (recommended)
+Compare real UI/UX drafts and choose the direction you want. Once you settle the design, your agent applies it to the real screen and checks the result.
 
-Copy either prompt into your coding agent:
+## Start with your agent
+
+Copy this into your coding agent:
 
 ```text
 Read the README at https://github.com/daviddev90/picky-client.git and install picky-client in your own agent environment.
 ```
 
+Then, in your product project, ask for a first round:
+
 ```text
-https://github.com/daviddev90/picky-client.git 저장소의 README를 읽고, 지금 사용 중인 에이전트 환경에 picky-client를 설치해 주세요.
+Use picky-client to make 3–5 layout drafts for this dashboard. Keep the existing colors, fonts, and features, and let me compare the drafts in a browser before I choose.
 ```
 
-For the installing agent: use the native plugin instructions below for Codex or Claude Code, and the matching Skills CLI agent ID for other hosts. Honor the user's requested installation scope; otherwise keep the installer defaults. Install the full skill folder, including its references, scripts, and assets. Verify actual skill discovery, then report the invocation and any reload steps required by the host.
+The agent researches examples, builds the candidates, checks actual browser renders, and shares a review URL you can reach. You browse the options and make the pick.
 
-## Install as a skill
+## How a round works
 
-The canonical skill lives in [skills/picky-client](skills/picky-client). From your project directory, run the [Skills CLI](https://github.com/vercel-labs/skills) with Node.js 22.20.0 or later:
+This diagram explains the process:
+
+```mermaid
+flowchart LR
+    A[Name the screen and decision] --> B[Research, build, and verify browser drafts]
+    B --> C[You compare and choose]
+    C --> D[You approve the next round or settle and apply]
+    D -->|Next round| A
+```
+
+Each round decides one open aspect of the design. Your selections carry forward, so the next round builds on what you already like.
+
+| Your decision | What you compare |
+|---|---|
+| Mood, visual personality, or equally usable compositions | Ten distinct directions |
+| Layout, controls, density, or navigation | Three to five grounded options with usability trade-offs |
+| One meaningful option remains | A reasoned recommendation |
+| Your theme is already fixed | Options that preserve its colors, font identity, and materials |
+
+## Pick, refine, apply
+
+Tell the agent what you chose and what should happen next. Example requests:
+
+```text
+I choose #2. Next, propose a typography round while keeping this layout.
+```
+
+```text
+The design is settled. Apply #2 to the real screen and verify its behavior and states.
+```
+
+The agent waits for your decision before continuing. Applying a design includes preserving existing functionality, reconciling the selected layout with the real screen, and checking the rendered result.
+
+## What keeps the choices useful
+
+- **Real references:** each round researches services with the same feature or a similar role, alongside current design practice.
+- **Fair comparisons:** reviewed words are shared across visual candidates; settled design choices remain fixed.
+- **Usable drafts:** browser rendering and navigation checks happen before handoff, with a reachable URL for review on your device.
+- **A decision trail:** your project’s `docs/picky-client.md` records candidates, research, checks, and winners. The settled specification goes in `docs/picky-client-design.md`.
+- **A clean production build:** the temporary review harness and its host mount lines are removed, and the production output is checked for exclusion.
+
+The supplied review harness uses React, TypeScript, Vite, React Router, Tailwind, and Motion. Other stacks adapt its integration points; native products use a web preview before application in their own stack. Hosts with subagents delegate builds and reviews. Other hosts run the passes sequentially and record same-agent review.
+
+## Installation details
+
+<details>
+<summary>Agent instructions, manual commands, and invocation</summary>
+
+### For the installing agent
+
+Honor the user’s requested installation mode and scope. Otherwise use the native plugin route below for Codex or Claude Code, and the matching Skills CLI ID for other hosts. Native plugins default to the current user; Skills CLI defaults to the project. Install the full skill folder, including references, scripts, and assets. Verify actual discovery, then report invocation and any host-required reload steps.
+
+### Skills CLI
+
+The canonical skill is [skills/picky-client](skills/picky-client). Run the [Skills CLI](https://github.com/vercel-labs/skills) from your project directory with Node.js 22.20.0 or later:
 
 ```bash
 npx skills add daviddev90/picky-client --skill picky-client
 ```
 
-Select your agent when prompted, or specify its ID:
+Select an agent when prompted, or specify one:
 
 ```bash
 npx skills add daviddev90/picky-client --skill picky-client --agent opencode -y
@@ -46,60 +104,50 @@ npx skills add daviddev90/picky-client --skill picky-client --agent antigravity 
 | Cline | `cline` |
 | Windsurf | `windsurf` |
 
-Installation is project-local by default. Add `-g` to install at the agent's user-wide location. For manual project installation, copy the entire `skills/picky-client` folder into `.agents/skills/`, a supported skill location in [OpenCode](https://opencode.ai/docs/skills/) and [Antigravity](https://antigravity.google/docs/skills?app=antigravity-ide). oh-my-opencode uses OpenCode's skill installation.
+Add `-g` for the agent’s user-wide location. For manual project installation, copy the entire `skills/picky-client` folder into `.agents/skills/`, supported by [OpenCode](https://opencode.ai/docs/skills/) and [Antigravity](https://antigravity.google/docs/skills?app=antigravity-ide). oh-my-opencode uses OpenCode’s skill installation.
 
-## Install as a native plugin
+### Claude Code plugin
 
-### Claude Code
-
-From your terminal, with Claude Code 2.1.292 or later:
+Terminal, Claude Code 2.1.292 or later:
 
 ```bash
 claude plugin install picky-client --marketplace daviddev90/picky-client
 ```
 
-For older versions, use the two-command installation:
+Older-version fallback:
 
 ```bash
 claude plugin marketplace add daviddev90/picky-client
 claude plugin install picky-client@daviddev90
 ```
 
-Inside a Claude Code session, version 2.1.275 or later supports `/plugin install picky-client --marketplace daviddev90/picky-client`. See [Claude Code plugin installation](https://code.claude.com/docs/en/discover-plugins).
+Inside a session, version 2.1.275 or later supports `/plugin install picky-client --marketplace daviddev90/picky-client`. See [Claude Code plugin installation](https://code.claude.com/docs/en/discover-plugins).
 
-### Codex
-
-From your terminal:
+### Codex plugin
 
 ```bash
 codex plugin marketplace add daviddev90/picky-client
 codex plugin add picky-client@daviddev90
 ```
 
-Inside Codex, use `/plugins` to browse plugins. See the [Codex CLI reference](https://learn.chatgpt.com/docs/cli/reference).
+Use `/plugins` inside Codex to browse plugins. See the [Codex CLI reference](https://learn.chatgpt.com/docs/cli/reference).
 
-Both native plugins use the canonical root `skills/` directory. The root [plugin.json](plugin.json) packages the portable/Codex plugin, and [.claude-plugin/plugin.json](.claude-plugin/plugin.json) provides the Claude Code compatibility manifest. See the [plugin packaging documentation](https://developers.openai.com/plugins/build/plugins).
+Both plugins use the canonical root `skills/`. Root [plugin.json](plugin.json) packages the portable/Codex plugin; [.claude-plugin/plugin.json](.claude-plugin/plugin.json) provides Claude Code compatibility. See [plugin packaging](https://developers.openai.com/plugins/build/plugins).
 
-## Use
+### Explicit invocation
 
-Ask in your working language:
-
-> Use picky-client to make layout drafts for this screen so I can choose.
-
-| Installation | Explicit invocation |
+| Installation | Invocation |
 |---|---|
 | Codex plugin | `$picky-client:picky-client` |
 | Codex standalone skill | `$picky-client` |
 | Claude Code plugin | `/picky-client:picky-client` |
 | Claude Code standalone skill | `/picky-client` |
 
-In other agents, ask to use picky-client. The agent shares a reachable review URL, logs decisions in your project's `docs/picky-client.md`, and waits for your selection. Candidates and review labels use your working language; the tool name remains `PICKY-CLIENT DRAFTS`.
+In other agents, ask to use picky-client. Candidates and review labels follow your working language; the tool name stays `PICKY-CLIENT DRAFTS`.
 
-## Review harness
+</details>
 
-The supplied harness uses React, TypeScript, Vite, React Router, Tailwind, and Motion. Other stacks adapt the integration points; native targets use a web preview before the design is applied in their own stack. The harness is development-only and is removed before production builds.
-
-Browser renders verify readiness. Hosts with subagents delegate builds and reviews; other hosts perform the checks sequentially and record same-agent review. Read the [skill](skills/picky-client/SKILL.md) for the workflow and [docs](docs/README.md) for a historical example.
+Read the [skill](skills/picky-client/SKILL.md) for the full workflow. The [historical record](docs/README.md) documents earlier choices while designing the review harness itself.
 
 ## License
 

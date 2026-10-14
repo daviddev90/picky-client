@@ -7,3 +7,6 @@ Thumbs.db
 
 # the plugin ships no dependencies, but just in case
 node_modules/
+
+# Private working notes and plans
+.local/
