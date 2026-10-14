@@ -24,15 +24,10 @@ Agent analizuje przykłady, tworzy propozycje, sprawdza ich rzeczywiste wyświet
 
 ## Jak przebiega runda
 
-Ten diagram objaśnia proces:
-
-```mermaid
-flowchart LR
-    A[Określ ekran i decyzję] --> B[Zbadaj, przygotuj i sprawdź propozycje w przeglądarce]
-    B --> C[Porównujesz i wybierasz]
-    C --> D[Zatwierdzasz następną rundę albo projekt i jego zastosowanie]
-    D -->|Następna runda| A
-```
+1. Wskazujesz ekran i decyzję projektową, którą chcesz podjąć.
+2. Agent analizuje przykłady, przygotowuje propozycje i sprawdza je w prawdziwej przeglądarce.
+3. Porównujesz propozycje i wybierasz jedną.
+4. Zatwierdzasz następną rundę albo ustalasz ostateczny projekt i prosisz agenta o zastosowanie go na rzeczywistym ekranie.
 
 Każda runda rozstrzyga jeden otwarty aspekt projektu. Twoje wybory są zachowywane, więc następna runda rozwija to, co już Ci się podoba.
 

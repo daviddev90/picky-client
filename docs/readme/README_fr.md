@@ -24,15 +24,10 @@ L'agent recherche des exemples, crée les propositions, vérifie leur rendu rée
 
 ## Comment se déroule une série
 
-Ce schéma explique le processus :
-
-```mermaid
-flowchart LR
-    A[Définir l'écran et la décision] --> B[Rechercher, créer et vérifier les propositions dans le navigateur]
-    B --> C[Vous comparez et choisissez]
-    C --> D[Vous validez la suite ou arrêtez le design et le faites appliquer]
-    D -->|Série suivante| A
-```
+1. Vous précisez l’écran et la décision de design à prendre.
+2. L’agent recherche des exemples, crée des propositions et les vérifie dans un vrai navigateur.
+3. Vous comparez les propositions et en choisissez une.
+4. Vous validez la série suivante ou arrêtez le design et demandez à l’agent de l’appliquer à l’écran réel.
 
 Chaque série tranche un aspect du design encore ouvert. Vos choix sont conservés afin que la suite s'appuie sur ce qui vous plaît déjà.
 

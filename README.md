@@ -24,15 +24,10 @@ The agent researches examples, builds the candidates, checks actual browser rend
 
 ## How a round works
 
-This diagram explains the process:
-
-```mermaid
-flowchart LR
-    A[Name the screen and decision] --> B[Research, build, and verify browser drafts]
-    B --> C[You compare and choose]
-    C --> D[You approve the next round or settle and apply]
-    D -->|Next round| A
-```
+1. You specify the screen and the design decision to make.
+2. The agent researches examples, builds drafts, and checks them in an actual browser.
+3. You compare the drafts and choose one.
+4. You approve the next round or settle the design and ask the agent to apply it to the real screen.
 
 Each round decides one open aspect of the design. Your selections carry forward, so the next round builds on what you already like.
 

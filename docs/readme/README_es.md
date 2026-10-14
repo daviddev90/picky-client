@@ -24,15 +24,10 @@ El agente investiga ejemplos, crea las propuestas, comprueba cómo se muestran r
 
 ## Cómo funciona una ronda
 
-Este diagrama explica el proceso:
-
-```mermaid
-flowchart LR
-    A[Identificar la pantalla y la decisión] --> B[Investigar, crear y verificar las propuestas en el navegador]
-    B --> C[Comparas y eliges]
-    C --> D[Apruebas otra ronda o defines el diseño y lo aplicas]
-    D -->|Siguiente ronda| A
-```
+1. Indicas la pantalla y la decisión de diseño que quieres tomar.
+2. El agente investiga ejemplos, crea propuestas y las comprueba en un navegador real.
+3. Comparas las propuestas y eliges una.
+4. Apruebas la siguiente ronda o defines el diseño y pides al agente que lo aplique a la pantalla real.
 
 Cada ronda resuelve un aspecto del diseño que aún está abierto. Tus elecciones se conservan para que la siguiente ronda parta de lo que ya te gusta.
 

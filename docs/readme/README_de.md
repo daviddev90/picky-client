@@ -24,15 +24,10 @@ Der Agent recherchiert Beispiele, erstellt die Varianten, prüft ihre tatsächli
 
 ## So funktioniert eine Runde
 
-Dieses Diagramm erklärt den Ablauf:
-
-```mermaid
-flowchart LR
-    A[Oberfläche und Entscheidung benennen] --> B[Recherchieren, erstellen und im Browser prüfen]
-    B --> C[Du vergleichst und wählst]
-    C --> D[Du bestätigst die nächste Runde oder legst das Design fest und lässt es umsetzen]
-    D -->|Nächste Runde| A
-```
+1. Du benennst die Oberfläche und die anstehende Designentscheidung.
+2. Der Agent recherchiert Beispiele, erstellt Entwürfe und prüft sie in einem echten Browser.
+3. Du vergleichst die Entwürfe und wählst einen aus.
+4. Du bestätigst die nächste Runde oder legst das Design fest und bittest den Agenten, es auf der tatsächlichen Oberfläche umzusetzen.
 
 Jede Runde klärt einen noch offenen Aspekt des Designs. Deine Entscheidungen werden übernommen, damit die nächste Runde auf dem aufbaut, was dir bereits gefällt.
 

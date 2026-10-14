@@ -24,15 +24,10 @@ L'agente ricerca esempi, crea le proposte, ne verifica il rendering effettivo ne
 
 ## Come funziona un ciclo
 
-Questo diagramma spiega il processo:
-
-```mermaid
-flowchart LR
-    A[Definisci la schermata e la decisione] --> B[Ricerca, crea e verifica le proposte nel browser]
-    B --> C[Confronti e scegli]
-    C --> D[Approvi il ciclo successivo oppure definisci e applichi il design]
-    D -->|Ciclo successivo| A
-```
+1. Indichi la schermata e la decisione di design da prendere.
+2. L’agente ricerca esempi, crea proposte e le verifica in un browser reale.
+3. Confronti le proposte e ne scegli una.
+4. Approvi il ciclo successivo oppure definisci il design e chiedi all’agente di applicarlo alla schermata reale.
 
 Ogni ciclo risolve un aspetto del design ancora aperto. Le tue scelte vengono mantenute, così il ciclo successivo parte da ciò che ti piace già.
 

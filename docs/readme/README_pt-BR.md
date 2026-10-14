@@ -24,15 +24,10 @@ O agente pesquisa exemplos, cria as propostas, verifica a renderização real no
 
 ## Como funciona uma rodada
 
-Este diagrama explica o processo:
-
-```mermaid
-flowchart LR
-    A[Definir a tela e a decisão] --> B[Pesquisar, criar e verificar as propostas no navegador]
-    B --> C[Você compara e escolhe]
-    C --> D[Você aprova outra rodada ou define o design e pede a aplicação]
-    D -->|Próxima rodada| A
-```
+1. Você indica a tela e a decisão de design que deseja tomar.
+2. O agente pesquisa exemplos, cria propostas e verifica a renderização em um navegador real.
+3. Você compara as propostas e escolhe uma.
+4. Você aprova a próxima rodada ou define o design e pede ao agente que o aplique à tela real.
 
 Cada rodada resolve um aspecto do design que ainda está em aberto. Suas escolhas são mantidas, para que a próxima rodada parta do que você já gostou.
 

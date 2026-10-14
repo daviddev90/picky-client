@@ -24,15 +24,10 @@ Tác nhân nghiên cứu các ví dụ, tạo phương án, kiểm tra cách hi�
 
 ## Một vòng diễn ra như thế nào
 
-Sơ đồ này giải thích quy trình:
-
-```mermaid
-flowchart LR
-    A[Xác định màn hình và quyết định] --> B[Nghiên cứu, tạo và kiểm tra phương án trong trình duyệt]
-    B --> C[Bạn so sánh và chọn]
-    C --> D[Bạn duyệt vòng tiếp theo hoặc chốt và áp dụng thiết kế]
-    D -->|Vòng tiếp theo| A
-```
+1. Bạn xác định màn hình và quyết định thiết kế cần đưa ra.
+2. Tác nhân nghiên cứu các ví dụ, tạo phương án và kiểm tra trong trình duyệt thực tế.
+3. Bạn so sánh các phương án và chọn một phương án.
+4. Bạn duyệt vòng tiếp theo hoặc chốt thiết kế và yêu cầu tác nhân áp dụng vào màn hình thực tế.
 
 Mỗi vòng quyết định một khía cạnh thiết kế còn bỏ ngỏ. Những lựa chọn của bạn được giữ lại, nên vòng tiếp theo phát triển từ những gì bạn đã thích.
 

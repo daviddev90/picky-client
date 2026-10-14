@@ -24,15 +24,10 @@ Agen meneliti contoh, membuat kandidat, memeriksa tampilan di browser yang seben
 
 ## Cara kerja satu putaran
 
-Diagram ini menjelaskan prosesnya:
-
-```mermaid
-flowchart LR
-    A[Tentukan layar dan keputusan] --> B[Teliti, buat, dan periksa rancangan di browser]
-    B --> C[Anda membandingkan dan memilih]
-    C --> D[Anda menyetujui putaran berikutnya atau menetapkan dan menerapkan desain]
-    D -->|Putaran berikutnya| A
-```
+1. Anda menentukan layar dan keputusan desain yang ingin dibuat.
+2. Agen meneliti contoh, membuat rancangan, dan memeriksanya di browser nyata.
+3. Anda membandingkan rancangan dan memilih salah satunya.
+4. Anda menyetujui putaran berikutnya atau menetapkan desain final dan meminta agen menerapkannya pada layar sebenarnya.
 
 Setiap putaran memutuskan satu aspek desain yang masih terbuka. Pilihan Anda dipertahankan, sehingga putaran berikutnya mengembangkan hal yang sudah Anda sukai.
 

@@ -24,15 +24,10 @@ Ajan örnekleri araştırır, adayları oluşturur, gerçek tarayıcı görünü
 
 ## Bir tur nasıl işler?
 
-Bu şema süreci açıklar:
-
-```mermaid
-flowchart LR
-    A[Ekranı ve kararı tanımlayın] --> B[Araştırın, oluşturun ve taslakları tarayıcıda doğrulayın]
-    B --> C[Karşılaştırır ve seçersiniz]
-    C --> D[Sonraki turu onaylar veya tasarımı kesinleştirip uygulatırsınız]
-    D -->|Sonraki tur| A
-```
+1. Ekranı ve verilecek tasarım kararını belirlersiniz.
+2. Ajan örnekleri araştırır, taslakları oluşturur ve gerçek bir tarayıcıda kontrol eder.
+3. Taslakları karşılaştırır ve birini seçersiniz.
+4. Sonraki turu onaylar veya tasarımı kesinleştirip ajandan gerçek ekrana uygulamasını istersiniz.
 
 Her tur, tasarımın henüz karara bağlanmamış bir yönünü belirler. Seçimleriniz sonraki turlara taşınır; böylece yeni tur, zaten beğendiğiniz kararların üzerine kurulur.
 
