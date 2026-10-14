@@ -1,6 +1,6 @@
 # picky-client
 
-[English](README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · **ไทย** · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
+[English](../../README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · **ไทย** · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
 
 **ให้เอเจนต์ของคุณออกแบบ คุณเป็นลูกค้าที่พิถีพิถัน ผลักดันคุณภาพการออกแบบบริการของคุณให้ถึงขีดสุด**
 
@@ -78,7 +78,7 @@ flowchart LR
 
 ### Skills CLI
 
-สกิลฉบับหลักอยู่ที่ [skills/picky-client](skills/picky-client) เรียก [Skills CLI](https://github.com/vercel-labs/skills) จากไดเรกทอรีโปรเจกต์ด้วย Node.js 22.20.0 หรือใหม่กว่า:
+สกิลฉบับหลักอยู่ที่ [skills/picky-client](../../skills/picky-client) เรียก [Skills CLI](https://github.com/vercel-labs/skills) จากไดเรกทอรีโปรเจกต์ด้วย Node.js 22.20.0 หรือใหม่กว่า:
 
 ```bash
 npx skills add daviddev90/picky-client --skill picky-client
@@ -132,7 +132,7 @@ codex plugin add picky-client@daviddev90
 
 ใช้ `/plugins` ภายใน Codex เพื่อดูปลั๊กอิน ดู [เอกสารอ้างอิง Codex CLI](https://learn.chatgpt.com/docs/cli/reference)
 
-ปลั๊กอินทั้งสองใช้ไดเรกทอรีหลัก `skills/` ที่รากของคลังโค้ด [plugin.json](plugin.json) ที่รากใช้จัดแพ็กเกจปลั๊กอินแบบพกพา/Codex ส่วน [.claude-plugin/plugin.json](.claude-plugin/plugin.json) รองรับความเข้ากันได้กับ Claude Code ดู [การจัดแพ็กเกจปลั๊กอิน](https://developers.openai.com/plugins/build/plugins)
+ปลั๊กอินทั้งสองใช้ไดเรกทอรีหลัก `skills/` ที่รากของคลังโค้ด [plugin.json](../../plugin.json) ที่รากใช้จัดแพ็กเกจปลั๊กอินแบบพกพา/Codex ส่วน [.claude-plugin/plugin.json](../../.claude-plugin/plugin.json) รองรับความเข้ากันได้กับ Claude Code ดู [การจัดแพ็กเกจปลั๊กอิน](https://developers.openai.com/plugins/build/plugins)
 
 ### การเรียกใช้โดยระบุชื่อ
 
@@ -147,7 +147,7 @@ codex plugin add picky-client@daviddev90
 
 </details>
 
-อ่าน [สกิล](skills/picky-client/SKILL.md) เพื่อดูขั้นตอนทั้งหมด [บันทึกในอดีต](docs/README.md) รวบรวมการตัดสินใจครั้งก่อนขณะออกแบบตัวชุดรีวิวเอง
+อ่าน [สกิล](../../skills/picky-client/SKILL.md) เพื่อดูขั้นตอนทั้งหมด
 
 ## สัญญาอนุญาต
 

@@ -1,6 +1,6 @@
 # picky-client
 
-[English](README.md) · [简体中文](README_zh.md) · **繁體中文** · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
+[English](../../README.md) · [简体中文](README_zh.md) · **繁體中文** · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
 
 **讓你的代理程式負責設計，自己當一位挑剔的客戶，把服務的設計品質推向極致。**
 
@@ -78,7 +78,7 @@ flowchart LR
 
 ### Skills CLI
 
-技能的維護來源位於 [skills/picky-client](skills/picky-client)。使用 Node.js 22.20.0 或更新版本，在專案目錄中執行 [Skills CLI](https://github.com/vercel-labs/skills)：
+技能的維護來源位於 [skills/picky-client](../../skills/picky-client)。使用 Node.js 22.20.0 或更新版本，在專案目錄中執行 [Skills CLI](https://github.com/vercel-labs/skills)：
 
 ```bash
 npx skills add daviddev90/picky-client --skill picky-client
@@ -132,7 +132,7 @@ codex plugin add picky-client@daviddev90
 
 在 Codex 中輸入 `/plugins` 即可瀏覽外掛。請參閱 [Codex CLI 參考文件](https://learn.chatgpt.com/docs/cli/reference)。
 
-兩個外掛都使用根目錄中的技能維護來源 `skills/`。根目錄的 [plugin.json](plugin.json) 用於封裝可攜式／Codex 外掛，[.claude-plugin/plugin.json](.claude-plugin/plugin.json) 提供 Claude Code 相容資訊。請參閱 [外掛封裝文件](https://developers.openai.com/plugins/build/plugins)。
+兩個外掛都使用根目錄中的技能維護來源 `skills/`。根目錄的 [plugin.json](../../plugin.json) 用於封裝可攜式／Codex 外掛，[.claude-plugin/plugin.json](../../.claude-plugin/plugin.json) 提供 Claude Code 相容資訊。請參閱 [外掛封裝文件](https://developers.openai.com/plugins/build/plugins)。
 
 ### 直接呼叫
 
@@ -147,7 +147,7 @@ codex plugin add picky-client@daviddev90
 
 </details>
 
-完整流程請閱讀[技能文件](skills/picky-client/SKILL.md)。[歷史紀錄](docs/README.md)記載了早期設計檢視介面本身時做出的選擇。
+完整流程請閱讀[技能文件](../../skills/picky-client/SKILL.md)。
 
 ## 授權條款
 

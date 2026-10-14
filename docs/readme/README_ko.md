@@ -1,6 +1,6 @@
 # picky-client
 
-[English](README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · **한국어** · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
+[English](../../README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · **한국어** · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
 
 **에이전트에게 디자인을 맡기고, 직접 Picky Client가 되어 서비스 디자인 품질을 극한까지 끌어올리세요.**
 
@@ -78,7 +78,7 @@ flowchart LR
 
 ### Skills CLI
 
-스킬 정본은 [skills/picky-client](skills/picky-client)에 있습니다. Node.js 22.20.0 이상인 환경에서 프로젝트 폴더를 열고 [Skills CLI](https://github.com/vercel-labs/skills)를 실행하세요.
+스킬 정본은 [skills/picky-client](../../skills/picky-client)에 있습니다. Node.js 22.20.0 이상인 환경에서 프로젝트 폴더를 열고 [Skills CLI](https://github.com/vercel-labs/skills)를 실행하세요.
 
 ```bash
 npx skills add daviddev90/picky-client --skill picky-client
@@ -132,7 +132,7 @@ codex plugin add picky-client@daviddev90
 
 Codex 안에서 `/plugins`를 입력하면 플러그인을 찾아볼 수 있습니다. [Codex CLI 문서](https://learn.chatgpt.com/docs/cli/reference)를 참고하세요.
 
-두 플러그인은 루트의 스킬 정본 `skills/`를 함께 사용합니다. 루트 [plugin.json](plugin.json)은 범용·Codex 플러그인을 구성하고, [.claude-plugin/plugin.json](.claude-plugin/plugin.json)은 Claude Code 호환 정보를 제공합니다. [플러그인 구성 문서](https://developers.openai.com/plugins/build/plugins)를 참고하세요.
+두 플러그인은 루트의 스킬 정본 `skills/`를 함께 사용합니다. 루트 [plugin.json](../../plugin.json)은 범용·Codex 플러그인을 구성하고, [.claude-plugin/plugin.json](../../.claude-plugin/plugin.json)은 Claude Code 호환 정보를 제공합니다. [플러그인 구성 문서](https://developers.openai.com/plugins/build/plugins)를 참고하세요.
 
 ### 직접 호출하기
 
@@ -147,7 +147,7 @@ Codex 안에서 `/plugins`를 입력하면 플러그인을 찾아볼 수 있습�
 
 </details>
 
-전체 절차는 [스킬 문서](skills/picky-client/SKILL.md)에 있습니다. [이전 결정 기록](docs/README.md)은 리뷰 화면 자체를 설계하며 진행했던 선택을 담고 있습니다.
+전체 절차는 [스킬 문서](../../skills/picky-client/SKILL.md)에 있습니다.
 
 ## 라이선스
 

@@ -1,6 +1,6 @@
 # picky-client
 
-[English](README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · **Türkçe** · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
+[English](../../README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · **Türkçe** · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
 
 **Tasarımı ajanınıza bırakın. Titiz müşteri siz olun. Ürününüzün tasarım kalitesini sonuna kadar geliştirin.**
 
@@ -78,7 +78,7 @@ Kullanıcının istediği kurulum biçimine ve kapsamına uyun. Aksi belirtilmed
 
 ### Skills CLI
 
-Esas skill [skills/picky-client](skills/picky-client) klasöründedir. Proje dizininizde Node.js 22.20.0 veya üzeriyle [Skills CLI](https://github.com/vercel-labs/skills) aracını çalıştırın:
+Esas skill [skills/picky-client](../../skills/picky-client) klasöründedir. Proje dizininizde Node.js 22.20.0 veya üzeriyle [Skills CLI](https://github.com/vercel-labs/skills) aracını çalıştırın:
 
 ```bash
 npx skills add daviddev90/picky-client --skill picky-client
@@ -132,7 +132,7 @@ codex plugin add picky-client@daviddev90
 
 Codex içinde eklentilere göz atmak için `/plugins` kullanın. [Codex CLI başvurusuna](https://learn.chatgpt.com/docs/cli/reference) bakın.
 
-Her iki eklenti de kökteki esas `skills/` klasörünü kullanır. Kökteki [plugin.json](plugin.json), taşınabilir/Codex eklentisini paketler; [.claude-plugin/plugin.json](.claude-plugin/plugin.json), Claude Code uyumluluğunu sağlar. [Eklenti paketleme](https://developers.openai.com/plugins/build/plugins) belgesine bakın.
+Her iki eklenti de kökteki esas `skills/` klasörünü kullanır. Kökteki [plugin.json](../../plugin.json), taşınabilir/Codex eklentisini paketler; [.claude-plugin/plugin.json](../../.claude-plugin/plugin.json), Claude Code uyumluluğunu sağlar. [Eklenti paketleme](https://developers.openai.com/plugins/build/plugins) belgesine bakın.
 
 ### Doğrudan çağırma
 
@@ -147,7 +147,7 @@ Diğer ajanlarda picky-client kullanmasını isteyin. Adaylar ve inceleme etiket
 
 </details>
 
-Tam iş akışı için [skill](skills/picky-client/SKILL.md) dosyasını okuyun. [Geçmiş kayıt](docs/README.md), inceleme ortamının kendisi tasarlanırken alınan önceki kararları belgeler.
+Tam iş akışı için [skill](../../skills/picky-client/SKILL.md) dosyasını okuyun.
 
 ## Lisans
 

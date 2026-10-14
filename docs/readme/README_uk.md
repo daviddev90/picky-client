@@ -1,6 +1,6 @@
 # picky-client
 
-[English](README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · **Українська** · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
+[English](../../README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · **Українська** · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
 
 **Доручіть дизайн своєму агенту. Будьте вимогливим клієнтом. Доведіть якість дизайну свого сервісу до межі.**
 
@@ -78,7 +78,7 @@ flowchart LR
 
 ### Skills CLI
 
-Основна версія навички міститься в [skills/picky-client](skills/picky-client). Запусти [Skills CLI](https://github.com/vercel-labs/skills) із папки проєкту з Node.js 22.20.0 або новішою версією:
+Основна версія навички міститься в [skills/picky-client](../../skills/picky-client). Запусти [Skills CLI](https://github.com/vercel-labs/skills) із папки проєкту з Node.js 22.20.0 або новішою версією:
 
 ```bash
 npx skills add daviddev90/picky-client --skill picky-client
@@ -132,7 +132,7 @@ codex plugin add picky-client@daviddev90
 
 Використай `/plugins` усередині Codex для перегляду плагінів. Див. [довідник Codex CLI](https://learn.chatgpt.com/docs/cli/reference).
 
-Обидва плагіни використовують основну кореневу папку `skills/`. Кореневий [plugin.json](plugin.json) описує переносний плагін і плагін Codex; [.claude-plugin/plugin.json](.claude-plugin/plugin.json) забезпечує сумісність із Claude Code. Див. [пакування плагінів](https://developers.openai.com/plugins/build/plugins).
+Обидва плагіни використовують основну кореневу папку `skills/`. Кореневий [plugin.json](../../plugin.json) описує переносний плагін і плагін Codex; [.claude-plugin/plugin.json](../../.claude-plugin/plugin.json) забезпечує сумісність із Claude Code. Див. [пакування плагінів](https://developers.openai.com/plugins/build/plugins).
 
 ### Явний виклик
 
@@ -147,7 +147,7 @@ codex plugin add picky-client@daviddev90
 
 </details>
 
-Повний процес описано в [навичці](skills/picky-client/SKILL.md). [Історичний запис](docs/README.md) документує попередні рішення під час проєктування самого середовища перегляду.
+Повний процес описано в [навичці](../../skills/picky-client/SKILL.md).
 
 ## Ліцензія
 

@@ -1,6 +1,6 @@
 # picky-client
 
-[English](README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · **Bahasa Indonesia** · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
+[English](../../README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · **Bahasa Indonesia** · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
 
 **Biarkan agen Anda merancang. Jadilah klien yang pemilih. Dorong kualitas desain layanan Anda hingga batasnya.**
 
@@ -78,7 +78,7 @@ Ikuti metode dan cakupan instalasi yang diminta pengguna. Jika tidak ditentukan,
 
 ### Skills CLI
 
-Skill acuan berada di [skills/picky-client](skills/picky-client). Jalankan [Skills CLI](https://github.com/vercel-labs/skills) dari direktori proyek dengan Node.js 22.20.0 atau yang lebih baru:
+Skill acuan berada di [skills/picky-client](../../skills/picky-client). Jalankan [Skills CLI](https://github.com/vercel-labs/skills) dari direktori proyek dengan Node.js 22.20.0 atau yang lebih baru:
 
 ```bash
 npx skills add daviddev90/picky-client --skill picky-client
@@ -132,7 +132,7 @@ codex plugin add picky-client@daviddev90
 
 Gunakan `/plugins` di dalam Codex untuk menelusuri plugin. Lihat [referensi Codex CLI](https://learn.chatgpt.com/docs/cli/reference).
 
-Kedua plugin menggunakan direktori acuan `skills/` di akar repositori. [plugin.json](plugin.json) di akar mengemas plugin portabel/Codex; [.claude-plugin/plugin.json](.claude-plugin/plugin.json) menyediakan kompatibilitas Claude Code. Lihat [pengemasan plugin](https://developers.openai.com/plugins/build/plugins).
+Kedua plugin menggunakan direktori acuan `skills/` di akar repositori. [plugin.json](../../plugin.json) di akar mengemas plugin portabel/Codex; [.claude-plugin/plugin.json](../../.claude-plugin/plugin.json) menyediakan kompatibilitas Claude Code. Lihat [pengemasan plugin](https://developers.openai.com/plugins/build/plugins).
 
 ### Pemanggilan eksplisit
 
@@ -147,7 +147,7 @@ Di agen lain, minta untuk menggunakan picky-client. Kandidat dan label peninjaua
 
 </details>
 
-Baca [skill](skills/picky-client/SKILL.md) untuk alur kerja lengkap. [Catatan historis](docs/README.md) mendokumentasikan pilihan terdahulu saat merancang lingkungan peninjauan itu sendiri.
+Baca [skill](../../skills/picky-client/SKILL.md) untuk alur kerja lengkap.
 
 ## Lisensi
 

@@ -1,6 +1,6 @@
 # picky-client
 
-[English](README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · **Deutsch** · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
+[English](../../README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · **Deutsch** · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
 
 **Lass deinen Agenten gestalten. Sei der anspruchsvolle Kunde. Hol das Beste aus dem Design deines Produkts heraus.**
 
@@ -78,7 +78,7 @@ Beachte die vom Nutzer gewünschte Installationsart und ihren Geltungsbereich. V
 
 ### Skills CLI
 
-Der maßgebliche Skill liegt unter [skills/picky-client](skills/picky-client). Führe die [Skills CLI](https://github.com/vercel-labs/skills) mit Node.js 22.20.0 oder neuer aus deinem Projektverzeichnis aus:
+Der maßgebliche Skill liegt unter [skills/picky-client](../../skills/picky-client). Führe die [Skills CLI](https://github.com/vercel-labs/skills) mit Node.js 22.20.0 oder neuer aus deinem Projektverzeichnis aus:
 
 ```bash
 npx skills add daviddev90/picky-client --skill picky-client
@@ -132,7 +132,7 @@ codex plugin add picky-client@daviddev90
 
 Mit `/plugins` kannst du in Codex Plugins durchsuchen. Siehe die [Codex-CLI-Referenz](https://learn.chatgpt.com/docs/cli/reference).
 
-Beide Plugins verwenden den maßgeblichen Ordner `skills/` im Projektstamm. Die dortige [plugin.json](plugin.json) paketiert das portable/Codex-Plugin; [.claude-plugin/plugin.json](.claude-plugin/plugin.json) stellt die Kompatibilität mit Claude Code bereit. Siehe [Plugin-Paketierung](https://developers.openai.com/plugins/build/plugins).
+Beide Plugins verwenden den maßgeblichen Ordner `skills/` im Projektstamm. Die dortige [plugin.json](../../plugin.json) paketiert das portable/Codex-Plugin; [.claude-plugin/plugin.json](../../.claude-plugin/plugin.json) stellt die Kompatibilität mit Claude Code bereit. Siehe [Plugin-Paketierung](https://developers.openai.com/plugins/build/plugins).
 
 ### Expliziter Aufruf
 
@@ -147,7 +147,7 @@ Bitte andere Agenten, picky-client zu verwenden. Varianten und Beschriftungen f�
 
 </details>
 
-Den vollständigen Ablauf findest du im [Skill](skills/picky-client/SKILL.md). Die [historische Dokumentation](docs/README.md) hält frühere Entscheidungen bei der Gestaltung der Begutachtungsumgebung selbst fest.
+Den vollständigen Ablauf findest du im [Skill](../../skills/picky-client/SKILL.md).
 
 ## Lizenz
 

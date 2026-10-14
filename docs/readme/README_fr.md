@@ -1,6 +1,6 @@
 # picky-client
 
-[English](README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · **Français** · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
+[English](../../README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · **Français** · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
 
 **Laissez votre agent concevoir. Soyez le client exigeant. Poussez la qualité du design de votre produit au maximum.**
 
@@ -78,7 +78,7 @@ Respectez le mode et la portée d'installation demandés par l'utilisateur. À d
 
 ### Skills CLI
 
-Le skill de référence se trouve dans [skills/picky-client](skills/picky-client). Exécutez [Skills CLI](https://github.com/vercel-labs/skills) depuis le répertoire de votre projet avec Node.js 22.20.0 ou une version ultérieure :
+Le skill de référence se trouve dans [skills/picky-client](../../skills/picky-client). Exécutez [Skills CLI](https://github.com/vercel-labs/skills) depuis le répertoire de votre projet avec Node.js 22.20.0 ou une version ultérieure :
 
 ```bash
 npx skills add daviddev90/picky-client --skill picky-client
@@ -132,7 +132,7 @@ codex plugin add picky-client@daviddev90
 
 Utilisez `/plugins` dans Codex pour parcourir les plugins. Consultez la [référence de Codex CLI](https://learn.chatgpt.com/docs/cli/reference).
 
-Les deux plugins utilisent le dossier de référence `skills/` à la racine. Le fichier [plugin.json](plugin.json) à la racine empaquette le plugin portable/pour Codex ; [.claude-plugin/plugin.json](.claude-plugin/plugin.json) assure la compatibilité avec Claude Code. Consultez la [création de paquets de plugins](https://developers.openai.com/plugins/build/plugins).
+Les deux plugins utilisent le dossier de référence `skills/` à la racine. Le fichier [plugin.json](../../plugin.json) à la racine empaquette le plugin portable/pour Codex ; [.claude-plugin/plugin.json](../../.claude-plugin/plugin.json) assure la compatibilité avec Claude Code. Consultez la [création de paquets de plugins](https://developers.openai.com/plugins/build/plugins).
 
 ### Invocation explicite
 
@@ -147,7 +147,7 @@ Avec les autres agents, demandez à utiliser picky-client. Les propositions et l
 
 </details>
 
-Lisez le [skill](skills/picky-client/SKILL.md) pour connaître le processus complet. L'[historique](docs/README.md) documente les choix antérieurs faits lors de la conception de l'environnement de comparaison lui-même.
+Lisez le [skill](../../skills/picky-client/SKILL.md) pour connaître le processus complet.
 
 ## Licence
 

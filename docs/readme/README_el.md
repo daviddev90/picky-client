@@ -1,6 +1,6 @@
 # picky-client
 
-[English](README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · **Ελληνικά**
+[English](../../README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · **Ελληνικά**
 
 **Αφήστε τον πράκτορά σας να σχεδιάσει. Γίνετε ο απαιτητικός πελάτης. Φτάστε την ποιότητα σχεδιασμού του προϊόντος σας στο μέγιστο.**
 
@@ -78,7 +78,7 @@ flowchart LR
 
 ### Skills CLI
 
-Το skill αναφοράς βρίσκεται στο [skills/picky-client](skills/picky-client). Εκτελέστε το [Skills CLI](https://github.com/vercel-labs/skills) από τον κατάλογο του έργου σας με Node.js 22.20.0 ή νεότερο:
+Το skill αναφοράς βρίσκεται στο [skills/picky-client](../../skills/picky-client). Εκτελέστε το [Skills CLI](https://github.com/vercel-labs/skills) από τον κατάλογο του έργου σας με Node.js 22.20.0 ή νεότερο:
 
 ```bash
 npx skills add daviddev90/picky-client --skill picky-client
@@ -132,7 +132,7 @@ codex plugin add picky-client@daviddev90
 
 Χρησιμοποιήστε το `/plugins` μέσα στο Codex για να περιηγηθείτε στα πρόσθετα. Δείτε την [αναφορά Codex CLI](https://learn.chatgpt.com/docs/cli/reference).
 
-Και τα δύο πρόσθετα χρησιμοποιούν τον φάκελο αναφοράς `skills/` στη ρίζα. Το [plugin.json](plugin.json) στη ρίζα συσκευάζει το φορητό πρόσθετο/πρόσθετο Codex· το [.claude-plugin/plugin.json](.claude-plugin/plugin.json) παρέχει συμβατότητα με το Claude Code. Δείτε τη [συσκευασία πρόσθετων](https://developers.openai.com/plugins/build/plugins).
+Και τα δύο πρόσθετα χρησιμοποιούν τον φάκελο αναφοράς `skills/` στη ρίζα. Το [plugin.json](../../plugin.json) στη ρίζα συσκευάζει το φορητό πρόσθετο/πρόσθετο Codex· το [.claude-plugin/plugin.json](../../.claude-plugin/plugin.json) παρέχει συμβατότητα με το Claude Code. Δείτε τη [συσκευασία πρόσθετων](https://developers.openai.com/plugins/build/plugins).
 
 ### Ρητή κλήση
 
@@ -147,7 +147,7 @@ codex plugin add picky-client@daviddev90
 
 </details>
 
-Διαβάστε το [skill](skills/picky-client/SKILL.md) για ολόκληρη τη ροή εργασίας. Το [ιστορικό αρχείο](docs/README.md) τεκμηριώνει προηγούμενες επιλογές κατά τον σχεδιασμό του ίδιου του περιβάλλοντος αξιολόγησης.
+Διαβάστε το [skill](../../skills/picky-client/SKILL.md) για ολόκληρη τη ροή εργασίας.
 
 ## Άδεια χρήσης
 

@@ -1,6 +1,6 @@
 # picky-client
 
-[English](README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · **Tiếng Việt** · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
+[English](../../README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · **Tiếng Việt** · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
 
 **Để tác nhân của bạn thiết kế. Hãy là khách hàng khó tính. Đẩy chất lượng thiết kế dịch vụ của bạn đến giới hạn.**
 
@@ -78,7 +78,7 @@ Tuân theo phương thức và phạm vi cài đặt người dùng yêu cầu. 
 
 ### Skills CLI
 
-Skill chuẩn nằm tại [skills/picky-client](skills/picky-client). Chạy [Skills CLI](https://github.com/vercel-labs/skills) từ thư mục dự án với Node.js 22.20.0 trở lên:
+Skill chuẩn nằm tại [skills/picky-client](../../skills/picky-client). Chạy [Skills CLI](https://github.com/vercel-labs/skills) từ thư mục dự án với Node.js 22.20.0 trở lên:
 
 ```bash
 npx skills add daviddev90/picky-client --skill picky-client
@@ -132,7 +132,7 @@ codex plugin add picky-client@daviddev90
 
 Dùng `/plugins` trong Codex để duyệt các plugin. Xem [tài liệu tham chiếu Codex CLI](https://learn.chatgpt.com/docs/cli/reference).
 
-Cả hai plugin dùng thư mục chuẩn `skills/` ở gốc kho mã. [plugin.json](plugin.json) ở gốc đóng gói plugin dùng được giữa các môi trường và plugin Codex; [.claude-plugin/plugin.json](.claude-plugin/plugin.json) cung cấp khả năng tương thích với Claude Code. Xem [đóng gói plugin](https://developers.openai.com/plugins/build/plugins).
+Cả hai plugin dùng thư mục chuẩn `skills/` ở gốc kho mã. [plugin.json](../../plugin.json) ở gốc đóng gói plugin dùng được giữa các môi trường và plugin Codex; [.claude-plugin/plugin.json](../../.claude-plugin/plugin.json) cung cấp khả năng tương thích với Claude Code. Xem [đóng gói plugin](https://developers.openai.com/plugins/build/plugins).
 
 ### Gọi trực tiếp
 
@@ -147,7 +147,7 @@ Với các tác nhân khác, hãy yêu cầu dùng picky-client. Các phương �
 
 </details>
 
-Đọc [skill](skills/picky-client/SKILL.md) để biết toàn bộ quy trình. [Ghi chép lịch sử](docs/README.md) ghi lại những lựa chọn trước đây khi thiết kế chính môi trường đánh giá.
+Đọc [skill](../../skills/picky-client/SKILL.md) để biết toàn bộ quy trình.
 
 ## Giấy phép
 

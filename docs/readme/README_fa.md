@@ -1,6 +1,6 @@
 # picky-client
 
-[English](README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · **فارسی** · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
+[English](../../README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · **فارسی** · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
 
 **طراحی را به عامل خود بسپارید. مشتری سخت‌پسند باشید. کیفیت طراحی سرویس خود را به بالاترین حد برسانید.**
 
@@ -78,7 +78,7 @@ flowchart LR
 
 ### Skills CLI
 
-مهارت مرجع در [skills/picky-client](skills/picky-client) قرار دارد. [Skills CLI](https://github.com/vercel-labs/skills) را از پوشهٔ پروژه با Node.js 22.20.0 یا جدیدتر اجرا کن:
+مهارت مرجع در [skills/picky-client](../../skills/picky-client) قرار دارد. [Skills CLI](https://github.com/vercel-labs/skills) را از پوشهٔ پروژه با Node.js 22.20.0 یا جدیدتر اجرا کن:
 
 ```bash
 npx skills add daviddev90/picky-client --skill picky-client
@@ -132,7 +132,7 @@ codex plugin add picky-client@daviddev90
 
 برای مرور افزونه‌ها در Codex از `/plugins` استفاده کنید. [مرجع Codex CLI](https://learn.chatgpt.com/docs/cli/reference) را ببینید.
 
-هر دو افزونه از پوشهٔ مرجع `skills/` در ریشهٔ مخزن استفاده می‌کنند. [plugin.json](plugin.json) در ریشه، افزونهٔ قابل‌انتقال/Codex را بسته‌بندی می‌کند؛ [.claude-plugin/plugin.json](.claude-plugin/plugin.json) سازگاری با Claude Code را فراهم می‌کند. [بسته‌بندی افزونه‌ها](https://developers.openai.com/plugins/build/plugins) را ببینید.
+هر دو افزونه از پوشهٔ مرجع `skills/` در ریشهٔ مخزن استفاده می‌کنند. [plugin.json](../../plugin.json) در ریشه، افزونهٔ قابل‌انتقال/Codex را بسته‌بندی می‌کند؛ [.claude-plugin/plugin.json](../../.claude-plugin/plugin.json) سازگاری با Claude Code را فراهم می‌کند. [بسته‌بندی افزونه‌ها](https://developers.openai.com/plugins/build/plugins) را ببینید.
 
 ### فراخوانی صریح
 
@@ -147,7 +147,7 @@ codex plugin add picky-client@daviddev90
 
 </details>
 
-برای روند کامل، [مهارت](skills/picky-client/SKILL.md) را بخوانید. [سابقهٔ تاریخی](docs/README.md) انتخاب‌های پیشین هنگام طراحی خود محیط بازبینی را ثبت می‌کند.
+برای روند کامل، [مهارت](../../skills/picky-client/SKILL.md) را بخوانید.
 
 ## مجوز
 

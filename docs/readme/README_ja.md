@@ -1,6 +1,6 @@
 # picky-client
 
-[English](README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · **日本語** · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
+[English](../../README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · **日本語** · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · [العربية](README_ar.md) · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
 
 **デザインはエージェントに任せ、あなたはこだわりの強いクライアントに。サービスのデザイン品質を限界まで高めましょう。**
 
@@ -78,7 +78,7 @@ flowchart LR
 
 ### Skills CLI
 
-スキルの正本は [skills/picky-client](skills/picky-client) です。Node.js 22.20.0 以降の環境で、プロジェクトのディレクトリから [Skills CLI](https://github.com/vercel-labs/skills) を実行します。
+スキルの正本は [skills/picky-client](../../skills/picky-client) です。Node.js 22.20.0 以降の環境で、プロジェクトのディレクトリから [Skills CLI](https://github.com/vercel-labs/skills) を実行します。
 
 ```bash
 npx skills add daviddev90/picky-client --skill picky-client
@@ -132,7 +132,7 @@ codex plugin add picky-client@daviddev90
 
 Codex 内で `/plugins` を使うと、プラグインを参照できます。[Codex CLI リファレンス](https://learn.chatgpt.com/docs/cli/reference)を参照してください。
 
-どちらのプラグインも、ルートの正本 `skills/` を使います。ルートの [plugin.json](plugin.json) はポータブル／Codex プラグインを構成し、[.claude-plugin/plugin.json](.claude-plugin/plugin.json) は Claude Code との互換性を提供します。[プラグインのパッケージ構成](https://developers.openai.com/plugins/build/plugins)を参照してください。
+どちらのプラグインも、ルートの正本 `skills/` を使います。ルートの [plugin.json](../../plugin.json) はポータブル／Codex プラグインを構成し、[.claude-plugin/plugin.json](../../.claude-plugin/plugin.json) は Claude Code との互換性を提供します。[プラグインのパッケージ構成](https://developers.openai.com/plugins/build/plugins)を参照してください。
 
 ### 明示的に呼び出す
 
@@ -147,7 +147,7 @@ Codex 内で `/plugins` を使うと、プラグインを参照できます。[C
 
 </details>
 
-全体の手順は[スキル文書](skills/picky-client/SKILL.md)を参照してください。[過去の記録](docs/README.md)には、レビュー画面そのものを設計した際の選択を残しています。
+全体の手順は[スキル文書](../../skills/picky-client/SKILL.md)を参照してください。
 
 ## ライセンス
 

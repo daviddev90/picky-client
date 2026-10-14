@@ -1,6 +1,6 @@
 # picky-client
 
-[English](README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · **العربية** · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
+[English](../../README.md) · [简体中文](README_zh.md) · [繁體中文](README_zh-TW.md) · [日本語](README_ja.md) · [한국어](README_ko.md) · [Türkçe](README_tr.md) · [Русский](README_ru.md) · [Tiếng Việt](README_vi.md) · [ไทย](README_th.md) · [Deutsch](README_de.md) · [Español](README_es.md) · [Français](README_fr.md) · [Українська](README_uk.md) · [Polski](README_pl.md) · [Português (Brasil)](README_pt-BR.md) · **العربية** · [فارسی](README_fa.md) · [Bahasa Indonesia](README_id.md) · [Italiano](README_it.md) · [Ελληνικά](README_el.md)
 
 **دع وكيلك يصمّم. كن العميل الدقيق في اختياراته. ادفع جودة تصميم خدمتك إلى أقصى حد.**
 
@@ -78,7 +78,7 @@ flowchart LR
 
 ### Skills CLI
 
-توجد المهارة المرجعية في [skills/picky-client](skills/picky-client). شغّل [Skills CLI](https://github.com/vercel-labs/skills) من مجلد مشروعك باستخدام Node.js 22.20.0 أو أحدث:
+توجد المهارة المرجعية في [skills/picky-client](../../skills/picky-client). شغّل [Skills CLI](https://github.com/vercel-labs/skills) من مجلد مشروعك باستخدام Node.js 22.20.0 أو أحدث:
 
 ```bash
 npx skills add daviddev90/picky-client --skill picky-client
@@ -132,7 +132,7 @@ codex plugin add picky-client@daviddev90
 
 استخدم `/plugins` داخل Codex لتصفح الإضافات. راجع [مرجع Codex CLI](https://learn.chatgpt.com/docs/cli/reference).
 
-تستخدم الإضافتان مجلد `skills/` المرجعي في جذر المستودع. يحدّد [plugin.json](plugin.json) في الجذر حزمة الإضافة المحمولة/إضافة Codex؛ ويوفّر [.claude-plugin/plugin.json](.claude-plugin/plugin.json) التوافق مع Claude Code. راجع [تجهيز حزم الإضافات](https://developers.openai.com/plugins/build/plugins).
+تستخدم الإضافتان مجلد `skills/` المرجعي في جذر المستودع. يحدّد [plugin.json](../../plugin.json) في الجذر حزمة الإضافة المحمولة/إضافة Codex؛ ويوفّر [.claude-plugin/plugin.json](../../.claude-plugin/plugin.json) التوافق مع Claude Code. راجع [تجهيز حزم الإضافات](https://developers.openai.com/plugins/build/plugins).
 
 ### الاستدعاء الصريح
 
@@ -147,7 +147,7 @@ codex plugin add picky-client@daviddev90
 
 </details>
 
-اقرأ [المهارة](skills/picky-client/SKILL.md) للاطلاع على سير العمل الكامل. يوثّق [السجل التاريخي](docs/README.md) اختيارات سابقة أثناء تصميم بيئة المراجعة نفسها.
+اقرأ [المهارة](../../skills/picky-client/SKILL.md) للاطلاع على سير العمل الكامل.
 
 ## الترخيص
 
